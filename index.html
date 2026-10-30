@@ -949,6 +949,12 @@ decorate();
 #banner .insp{margin:0 0 18px;font-size:15px}
 @media(max-width:900px){.xblocks{grid-template-columns:1fr}}
 
+/* 31/10/2026 – fiche produit : boutons de format pleine largeur, volume et prix sur une ligne (comme sur les cartes) */
+#pvars .vwrap{flex:1 1 100%;width:100%}
+#pvars .vwrap:not(.sh):not(.dt) .vars{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+#pvars .vwrap:not(.sh) .var:not(.sw){flex-direction:row;justify-content:center;align-items:center;gap:12px;text-align:center}
+#pvars .vwrap:not(.sh) .var:not(.sw) b{padding-left:12px;border-left:1px solid rgba(29,29,31,.14)}
+@media(min-width:701px){#pvars .vwrap:not(.sh):not(.dt) .vars{grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}}
 /* 31/10/2026 – téléphone : ligne Budget alignée ; barre « Ma sélection » entièrement masquée quand elle est rentrée */
 #prow .sub{margin:0!important}
 #prow b{align-self:center;line-height:1}
