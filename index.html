@@ -903,10 +903,10 @@ function banner(){var st=M.st,t=D.themes.filter(function(x){return x.k===st.th})
 new MutationObserver(decorate).observe(tabs,{childList:true});
 $('#q').addEventListener('input',banner);
 /* barre qui se réduit en défilant (ordinateur) */
-var miniD=0,miniT=0;function setMini(v){var now=Date.now();if(now-miniT<400)return;miniT=now;var h0=tools.offsetHeight;tools.classList.toggle('mini',!!v);var d=h0-tools.offsetHeight;if(v)miniD=Math.max(0,d);if(d)window.scrollBy(0,-d)}
+var tsp=document.createElement('div');tsp.id='toolsp';tsp.setAttribute('aria-hidden','true');tools.parentNode.insertBefore(tsp,tools.nextSibling);function setMini(v){if(!!v===tools.classList.contains('mini'))return;if(v){var h0=tools.offsetHeight;tools.classList.add('mini');tsp.style.height=Math.max(0,h0-tools.offsetHeight)+'px'}else{tools.classList.remove('mini');tsp.style.height='0px'}}
 function onScroll(){var cat=$('#catalogue');if(innerWidth<=820){if(tools.classList.contains('mini'))tools.classList.remove('mini');return}
  var r=cat.getBoundingClientRect().top,on=tools.classList.contains('mini');
- if(!on&&r<-520)setMini(1);else if(on&&r>-520+miniD+150)setMini(0)}
+ if(!on&&r<-520)setMini(1);else if(on&&r>-380)setMini(0)}
 /* remonter au début des produits quand on change d'onglet depuis le bas de la page */
 tools.addEventListener('click',function(e){if(!e.target.closest('.tab,.sub,#prow button'))return;setTimeout(function(){var g=$('#ubanner').hidden?$('#grid'):$('#ubanner');if(g.getBoundingClientRect().top<0)g.scrollIntoView({behavior:'smooth'})},30)});
 /* ===== [P3] filtre budget ===== */
@@ -955,6 +955,10 @@ decorate();
 #pvars .vwrap:not(.sh) .var:not(.sw){flex-direction:row;justify-content:center;align-items:center;gap:12px;text-align:center}
 #pvars .vwrap:not(.sh) .var:not(.sw) b{padding-left:12px;border-left:1px solid rgba(29,29,31,.14)}
 @media(min-width:701px){#pvars .vwrap:not(.sh):not(.dt) .vars{grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}}
+/* barre de filtres réduite (ordinateur) : apparition douce */
+@media (min-width:821px){.tools.mini{animation:tmini .28s cubic-bezier(.2,.8,.2,1)}@keyframes tmini{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}}
+#toolsp{height:0}
+@media (max-width:820px){#toolsp{display:none}}
 /* 31/10/2026 – téléphone : ligne Budget alignée ; barre « Ma sélection » entièrement masquée quand elle est rentrée */
 #prow .sub{margin:0!important}
 #prow b{align-self:center;line-height:1}
