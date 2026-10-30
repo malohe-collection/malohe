@@ -584,7 +584,7 @@ function renderSub0(){var s=$('#subnav'),lb=$('#luxbar');s.textContent='';lb.tex
  if(st.th==='parfums'&&st.lx)pill('← Tous les parfums',false,function(){goTheme('parfums',0,0)});
  pill('Tout',st.g==='all',function(){st.g='all';st.f='';st.n=36;renderAll()});
  gs.forEach(function(g){pill(g,st.g===g,function(){st.g=g;st.n=36;renderAll()})});s.hidden=false;
- var o=document.getElementById('pinsp');if(o)o.remove();if(st.th==='parfums'){var pn=el('p','pinsp','Chaque fragrance Olfazeta est pensée comme une inspiration des grandes tendances de la parfumerie de luxe. Pour recevoir la liste détaillée de la collection, avec les notes et les familles olfactives de chaque parfum, contactez-moi.');pn.id='pinsp';s.parentNode.insertBefore(pn,s.nextSibling)}
+ var o=document.getElementById('pinsp');if(o)o.remove();
  lb.hidden=true;if(st.th==='parfums'&&!st.lx){var x=el('button','sub lxp','✦ Collection Luxury');x.type='button';x.onclick=function(){goTheme('parfums',1,0)};s.appendChild(x)}}
 function renderChips(){}
 function add(c,v){var cur=cart[v.r];if(cur)cur.q++;else cart[v.r]={r:v.r,t:c.t,l:v.l,p:v.p,q:1,im:v.im||c.im};
