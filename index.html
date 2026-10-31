@@ -420,7 +420,7 @@ var T=k.split(/[^a-z0-9]+/);for(var i=0;i<T.length;i++){var t=T[i];if(t.length<3
 <style>.card{position:relative}.card::after{content:"Chogan";position:absolute;top:12px;left:12px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);background:rgba(255,255,255,.88);padding:3px 9px;border-radius:99px;pointer-events:none}.faq{max-width:760px;margin:34px auto 0;display:grid;gap:10px;text-align:left}.faq details{background:var(--bg2);border-radius:20px;padding:0 22px}.faq summary{cursor:pointer;list-style:none;padding:18px 0;font-weight:600;font-size:17px;display:flex;justify-content:space-between;gap:16px}.faq summary::-webkit-details-marker{display:none}.faq summary::after{content:"+";color:var(--accent);font-size:22px;line-height:1}.faq details[open] summary::after{content:"–"}.faq p{margin:0 0 18px;color:var(--muted);font-size:16px;line-height:1.55}</style><a class="skip" href="#catalogue">Aller au catalogue</a>
 <header><div class="bar">
 <a class="brand" href="#top" data-go><svg class="mono" viewBox="-8 0 190 215" style="height:34px" aria-hidden="true" fill="none"><defs><linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--g1)"/><stop offset="0.5" style="stop-color:var(--g2)"/><stop offset="1" style="stop-color:var(--g1)"/></linearGradient></defs><path d="M110 18A81 81 0 1 0 62 171" stroke="url(#lg2)" stroke-width="2.6" stroke-linecap="round"/><path d="M11 20H47L109 172H77Z" fill="url(#lg2)"/><path class="ln" d="M87 168L135 27" stroke-width="3.2"/><rect class="lf" x="137" y="20" width="8" height="152"/><path class="ln" d="M120 172H175" stroke-width="3.2"/></svg><span>MALOHE</span></a>
-<nav aria-label="Navigation principale"><a href="#univers" data-go>Univers</a><a href="#luxury" data-go>Luxury</a><a href="#catalogue" data-go>Catalogue</a><a href="#commander" data-go>Commander</a><a href="#faq" data-go>FAQ</a><a href="#contact" data-go>Contact</a></nav>
+<nav aria-label="Navigation principale"><a href="#univers" data-go>Univers</a><a href="#catalogue" data-go>Catalogue</a><a href="#luxury" data-go>Luxury</a><a href="#commander" data-go>Commander</a><a href="#faq" data-go>FAQ</a><a href="#contact" data-go>Contact</a></nav>
 <div class="hact"><button class="hsearch" id="hsearch" type="button" aria-label="Rechercher un produit"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.2-4.2"/></svg></button><button class="cartbtn" id="openCart" type="button" aria-label="Ouvrir ma sélection">Ma sélection <span id="count">0</span></button></div>
 </div></header>
 <main id="top">
@@ -433,6 +433,19 @@ var T=k.split(/[^a-z0-9]+/);for(var i=0;i<T.length;i++){var t=T[i];if(t.length<3
 <figure class="stage heroph rv"><img src="img/hero.webp" srcset="img/hero_s.webp 800w, img/hero.webp 1400w" sizes="(max-width:700px) 92vw, 560px" width="1400" height="1575" alt="Collection Malohe : parfum Olfazeta Luxury, brume Aurodhea Lush Cloud, gloss et rouge à lèvres MoniAmori" fetchpriority="high" decoding="async"></figure>
 <div class="facts rv"><div><b id="f1">600+</b><span>produits</span></div><div><b>5</b><span>univers</span></div><div><b>12</b><span>gammes de soins</span></div><div><b>Chogan</b><span>vendeur indépendant</span></div></div>
 </section>
+
+<section class="exc" id="excellence"><div class="wrap">
+<div class="eyebrow rv">Parfums</div>
+<h2 class="rv">L’excellence du parfum, autrement.</h2>
+<p class="sub rv">Les parfums Olfazeta s’inspirent des grandes signatures olfactives de la parfumerie, pour proposer des fragrances raffinées à un prix accessible.</p>
+<div class="xblocks">
+<div class="xblk rv"><h3>Des fragrances inspirées de grandes marques</h3><p>Des parfums pensés pour rappeler l’univers des grandes maisons de parfumerie, avec leur propre caractère.</p></div>
+<div class="xblk rv"><h3>Une concentration de 30 %</h3><p>Les parfums de cette gamme sont concentrés à 30 % d’essence de parfum, pour une intensité et une tenue pensées pour accompagner la journée.</p></div>
+<div class="xblk rv"><h3>Le luxe, sans le superflu</h3><p>En privilégiant l’essentiel plutôt que les coûts de marketing des grandes marques, la marque rend l’univers du parfum plus accessible.</p></div>
+</div>
+<p class="xinsp rv"><a href="https://malohe-collection.fr/Malohe-Carte-des-parfums.pdf" target="_blank" rel="noopener">Parcourez notre liste d’inspirations</a></p><p class="xqz rv"><button class="btn" type="button" onclick="window.__quiz&&window.__quiz()">✦ Trouver mon parfum</button></p>
+<p class="xsign rv">MALOHE — L’élégance au quotidien.</p>
+</div></section>
 
 <section id="univers"><div class="wrap">
 <div class="eyebrow rv">Collection Chogan</div>
@@ -449,22 +462,9 @@ var T=k.split(/[^a-z0-9]+/);for(var i=0;i<T.length;i++){var t=T[i];if(t.length<3
 </div></section>
 
 
-<section class="lux" id="luxury"><div class="wrap"><div class="eyebrow rv">Collection Luxury</div><h2 class="rv">Cinq signatures, une même élégance.</h2><p class="sub rv">Les extraits de parfum Olfazeta Luxury, en flacon de 50 ml : douceur, fraîcheur, éclat, passion et intensité.</p></div>
-<div class="luxrow" tabindex="0" role="region" aria-label="Collection Luxury"><figure><img src="img/lux1.webp" data-big="img/lux1_l.webp" tabindex="0" role="button" aria-label="Agrandir : Les cinq signatures" alt="Les cinq signatures – Olfazeta" width="640" height="800" loading="lazy" decoding="async"><figcaption><b>Les cinq signatures</b><span>Collection Luxury · 50 ml</span></figcaption></figure><figure><img src="img/lux2.webp" data-big="img/lux2_l.webp" tabindex="0" role="button" aria-label="Agrandir : La douceur, au quotidien" alt="La douceur, au quotidien – Olfazeta" width="640" height="800" loading="lazy" decoding="async"><figcaption><b>La douceur, au quotidien</b><span>Luxury · 50 ml</span></figcaption></figure><figure><img src="img/lux3.webp" data-big="img/lux3_l.webp" tabindex="0" role="button" aria-label="Agrandir : La fraîcheur, sublimée" alt="La fraîcheur, sublimée – Olfazeta" width="640" height="800" loading="lazy" decoding="async"><figcaption><b>La fraîcheur, sublimée</b><span>Luxury · 50 ml</span></figcaption></figure><figure><img src="img/lux4.webp" data-big="img/lux4_l.webp" tabindex="0" role="button" aria-label="Agrandir : L’éclat de l’or" alt="L’éclat de l’or – Olfazeta" width="640" height="800" loading="lazy" decoding="async"><figcaption><b>L’éclat de l’or</b><span>Luxury · 50 ml</span></figcaption></figure><figure><img src="img/lux5.webp" data-big="img/lux5_l.webp" tabindex="0" role="button" aria-label="Agrandir : Une passion qui se porte" alt="Une passion qui se porte – Olfazeta" width="640" height="800" loading="lazy" decoding="async"><figcaption><b>Une passion qui se porte</b><span>Luxury · 50 ml</span></figcaption></figure><figure><img src="img/lux6.webp" data-big="img/lux6_l.webp" tabindex="0" role="button" aria-label="Agrandir : L’intensité, révélée" alt="L’intensité, révélée – Olfazeta" width="640" height="800" loading="lazy" decoding="async"><figcaption><b>L’intensité, révélée</b><span>Luxury · 50 ml</span></figcaption></figure></div>
-<div class="wrap center"><button class="btn" type="button" data-lux>Découvrir la collection Luxury</button></div></section>
 
-<section class="exc" id="excellence"><div class="wrap">
-<div class="eyebrow rv">Parfums</div>
-<h2 class="rv">L’excellence du parfum, autrement.</h2>
-<p class="sub rv">Les parfums Olfazeta s’inspirent des grandes signatures olfactives de la parfumerie, pour proposer des fragrances raffinées à un prix accessible.</p>
-<div class="xblocks">
-<div class="xblk rv"><h3>Des fragrances inspirées de grandes marques</h3><p>Des parfums pensés pour rappeler l’univers des grandes maisons de parfumerie, avec leur propre caractère.</p></div>
-<div class="xblk rv"><h3>Une concentration de 30 %</h3><p>Les parfums de cette gamme sont concentrés à 30 % d’essence de parfum, pour une intensité et une tenue pensées pour accompagner la journée.</p></div>
-<div class="xblk rv"><h3>Le luxe, sans le superflu</h3><p>En privilégiant l’essentiel plutôt que les coûts de marketing des grandes marques, la marque rend l’univers du parfum plus accessible.</p></div>
-</div>
-<p class="xinsp rv"><a href="https://malohe-collection.fr/Malohe-Carte-des-parfums.pdf" target="_blank" rel="noopener">Parcourez notre liste d’inspirations</a></p><p class="xqz rv"><button class="btn" type="button" onclick="window.__quiz&&window.__quiz()">✦ Trouver mon parfum</button></p>
-<p class="xsign rv">MALOHE — L’élégance au quotidien.</p>
-</div></section>
+
+
 
 <section class="cat" id="catalogue"><div class="wrap">
 <div class="eyebrow">Catalogue</div>
@@ -480,6 +480,10 @@ var T=k.split(/[^a-z0-9]+/);for(var i=0;i<T.length;i++){var t=T[i];if(t.length<3
 <div class="grid" id="grid"></div>
 <button class="btn ghost more" id="more" type="button" hidden>Voir plus</button>
 </div></section>
+
+<section class="lux" id="luxury"><div class="wrap"><div class="eyebrow rv">Collection Luxury</div><h2 class="rv">Cinq signatures, une même élégance.</h2><p class="sub rv">Les extraits de parfum Olfazeta Luxury, en flacon de 50 ml : douceur, fraîcheur, éclat, passion et intensité.</p></div>
+<div class="luxrow" tabindex="0" role="region" aria-label="Collection Luxury"><figure><img src="img/lux1.webp" data-big="img/lux1_l.webp" tabindex="0" role="button" aria-label="Agrandir : Les cinq signatures" alt="Les cinq signatures – Olfazeta" width="640" height="800" loading="lazy" decoding="async"><figcaption><b>Les cinq signatures</b><span>Collection Luxury · 50 ml</span></figcaption></figure><figure><img src="img/lux2.webp" data-big="img/lux2_l.webp" tabindex="0" role="button" aria-label="Agrandir : La douceur, au quotidien" alt="La douceur, au quotidien – Olfazeta" width="640" height="800" loading="lazy" decoding="async"><figcaption><b>La douceur, au quotidien</b><span>Luxury · 50 ml</span></figcaption></figure><figure><img src="img/lux3.webp" data-big="img/lux3_l.webp" tabindex="0" role="button" aria-label="Agrandir : La fraîcheur, sublimée" alt="La fraîcheur, sublimée – Olfazeta" width="640" height="800" loading="lazy" decoding="async"><figcaption><b>La fraîcheur, sublimée</b><span>Luxury · 50 ml</span></figcaption></figure><figure><img src="img/lux4.webp" data-big="img/lux4_l.webp" tabindex="0" role="button" aria-label="Agrandir : L’éclat de l’or" alt="L’éclat de l’or – Olfazeta" width="640" height="800" loading="lazy" decoding="async"><figcaption><b>L’éclat de l’or</b><span>Luxury · 50 ml</span></figcaption></figure><figure><img src="img/lux5.webp" data-big="img/lux5_l.webp" tabindex="0" role="button" aria-label="Agrandir : Une passion qui se porte" alt="Une passion qui se porte – Olfazeta" width="640" height="800" loading="lazy" decoding="async"><figcaption><b>Une passion qui se porte</b><span>Luxury · 50 ml</span></figcaption></figure><figure><img src="img/lux6.webp" data-big="img/lux6_l.webp" tabindex="0" role="button" aria-label="Agrandir : L’intensité, révélée" alt="L’intensité, révélée – Olfazeta" width="640" height="800" loading="lazy" decoding="async"><figcaption><b>L’intensité, révélée</b><span>Luxury · 50 ml</span></figcaption></figure></div>
+<div class="wrap center"><button class="btn" type="button" data-lux>Découvrir la collection Luxury</button></div></section>
 
 <section id="commander" class="dark"><div class="wrap center">
 <div class="eyebrow rv">Commander</div>
@@ -513,7 +517,7 @@ var T=k.split(/[^a-z0-9]+/);for(var i=0;i<T.length;i++){var t=T[i];if(t.length<3
 </div></section>
 </main>
 <footer><div class="wrap"><svg class="logo" viewBox="28 28 292 292" style="height:140px" role="img" aria-label="Logo Malohe" fill="none"><defs><linearGradient id="lg3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--g1)"/><stop offset="0.5" style="stop-color:var(--g2)"/><stop offset="1" style="stop-color:var(--g1)"/></linearGradient></defs><path class="arc" d="M200 38A137 137 0 1 0 308 207" stroke-width="1.2" stroke-linecap="round"/><svg x="137" y="94" width="83" height="100" viewBox="0 0 180 215" overflow="visible"><path d="M110 18A81 81 0 1 0 62 171" stroke="url(#lg3)" stroke-width="2.6" stroke-linecap="round"/><path d="M11 20H47L109 172H77Z" fill="url(#lg3)"/><path class="ln" d="M87 168L135 27" stroke-width="3.2"/><rect class="lf" x="137" y="20" width="8" height="152"/><path class="ln" d="M120 172H175" stroke-width="3.2"/></svg><text x="185.5" y="224" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="25" letter-spacing="19">MALOHE</text></svg><div>© 2026 Malohe, vendeur indépendant Chogan, non affilié à la société Chogan · Prix en euros, donnés à titre indicatif et susceptibles d’évoluer.</div>
-<div class="flinks"><a href="#univers" data-go>Univers</a><a href="#luxury" data-go>Luxury</a><a href="#catalogue" data-go>Catalogue</a><a href="#commander" data-go>Commander</a><a href="#faq" data-go>FAQ</a><a href="#contact" data-go>Contact</a><a href="https://www.instagram.com/malohe.collection/" target="_blank" rel="noopener">Instagram</a></div>
+<div class="flinks"><a href="#univers" data-go>Univers</a><a href="#catalogue" data-go>Catalogue</a><a href="#luxury" data-go>Luxury</a><a href="#commander" data-go>Commander</a><a href="#faq" data-go>FAQ</a><a href="#contact" data-go>Contact</a><a href="https://www.instagram.com/malohe.collection/" target="_blank" rel="noopener">Instagram</a></div>
 <div>Chogan, Olfazeta et les autres marques citées, ainsi que les visuels des produits, appartiennent à leurs propriétaires. Les marques citées comme inspiration n’ont aucun lien avec Malohe.</div></div></footer>
 
 <button class="mbar" id="mbar" type="button" aria-label="Ouvrir ma sélection"><span id="mcount">0 article</span><span id="mtotal">0,00 €</span><span>Voir ma sélection</span></button>
@@ -937,7 +941,8 @@ tt.onclick=function(){window.scrollTo({top:0,behavior:'smooth'})};document.body.
 window.addEventListener('scroll',function(){tt.classList.toggle('on',scrollY>1500);onScroll()},{passive:true});
 decorate();
 })()</script><style id="fav-css">
-#excellence{background:var(--bg2)}
+#excellence{background:var(--bg)}
+#luxury{background:var(--bg)}
 #excellence .wrap{text-align:center}
 #excellence .sub{margin-left:auto;margin-right:auto}
 .xblocks{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px;text-align:left}
