@@ -419,7 +419,7 @@ h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing
 <header><div class="bar">
 <a class="brand" href="#top" data-go><svg class="mono" viewBox="-8 0 190 215" style="height:34px" aria-hidden="true" fill="none"><defs><linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--g1)"/><stop offset="0.5" style="stop-color:var(--g2)"/><stop offset="1" style="stop-color:var(--g1)"/></linearGradient></defs><path d="M110 18A81 81 0 1 0 62 171" stroke="url(#lg2)" stroke-width="2.6" stroke-linecap="round"/><path d="M11 20H47L109 172H77Z" fill="url(#lg2)"/><path class="ln" d="M87 168L135 27" stroke-width="3.2"/><rect class="lf" x="137" y="20" width="8" height="152"/><path class="ln" d="M120 172H175" stroke-width="3.2"/></svg><span>MALOHE</span></a>
 <nav aria-label="Navigation principale"><a href="#univers" data-go>Univers</a><a href="#luxury" data-go>Luxury</a><a href="#catalogue" data-go>Catalogue</a><a href="#commander" data-go>Commander</a><a href="#faq" data-go>FAQ</a><a href="#contact" data-go>Contact</a></nav>
-<button class="cartbtn" id="openCart" type="button" aria-label="Ouvrir ma sélection">Ma sélection <span id="count">0</span></button>
+<div class="hact"><button class="hsearch" id="hsearch" type="button" aria-label="Rechercher un produit"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.2-4.2"/></svg></button><button class="cartbtn" id="openCart" type="button" aria-label="Ouvrir ma sélection">Ma sélection <span id="count">0</span></button></div>
 </div></header>
 <main id="top">
 <section class="hero">
@@ -948,6 +948,10 @@ decorate();
 #banner .insp{margin:0 0 18px;font-size:15px}
 @media(max-width:900px){.xblocks{grid-template-columns:1fr}}
 
+/* loupe du bandeau */
+.hact{display:flex;align-items:center;gap:10px;flex:none}
+.hsearch{width:34px;height:34px;border-radius:50%;border:0;display:grid;place-items:center;padding:0;cursor:pointer;color:var(--ink);background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);transition:transform .2s,box-shadow .2s}
+.hsearch:hover{box-shadow:inset 0 0 0 1px var(--accent);color:var(--accent)}.hsearch:active{transform:scale(.94)}
 /* tri par prix */
 .mrow{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .sortw{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
@@ -1023,6 +1027,7 @@ var FMT=/^\\s*(recharge\\s+)?\\d+([,.]\\d+)?\\s*(ml|l|g|kg)\\b|^(unité|étui)$/
  if(o.f){var f=el('p','osrc');f.append('Composition et précautions d’emploi : ');var L=rows(o.f);
   L.forEach(function(r,i){var a=el('a',null,r[0]?r[0]:'voir la fiche technique officielle Chogan (PDF)');a.href=r[1];a.target='_blank';a.rel='noopener';if(i)f.append(' · ');f.appendChild(a)});
   if(L.length>1)f.insertBefore(document.createTextNode('fiches techniques officielles Chogan (PDF) — '),f.childNodes[1]);box.appendChild(f)}};
+var hs=document.getElementById('hsearch'),hq=document.getElementById('q');if(hs&&hq)hs.addEventListener('click',function(){var hd=document.querySelector('header'),off=(hd?hd.offsetHeight:56)+16;hq.focus({preventScroll:true});var y=hq.getBoundingClientRect().top+window.scrollY-off;window.scrollTo({top:Math.max(0,y),behavior:'smooth'})});
 var cd=document.createElement('div');cd.id='cdone';cd.hidden=true;cd.setAttribute('role','dialog');cd.setAttribute('aria-modal','true');cd.setAttribute('aria-labelledby','cdt');
 cd.innerHTML='<div class="box"><div class="ok">✓</div><h3 id="cdt">Merci&nbsp;!</h3><p id="cdp"></p><button class="btn" type="button" id="cdclear">Vider ma sélection</button><button class="btn ghost" type="button" id="cdkeep">Garder ma sélection</button></div>';document.body.appendChild(cd);
 var TXT={mailBtn:'Votre messagerie s’est ouverte avec votre commande : pensez à cliquer sur «\u00a0Envoyer\u00a0».',waBtn:'WhatsApp s’est ouvert avec votre commande : pensez à envoyer le message.',igBtn:'Votre commande est copiée : collez-la dans la conversation Instagram et envoyez-la.'};
