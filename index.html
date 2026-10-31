@@ -420,7 +420,7 @@ var T=k.split(/[^a-z0-9]+/);for(var i=0;i<T.length;i++){var t=T[i];if(t.length<3
 <style>.card{position:relative}.card::after{content:"Chogan";position:absolute;top:12px;left:12px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);background:rgba(255,255,255,.88);padding:3px 9px;border-radius:99px;pointer-events:none}.faq{max-width:760px;margin:34px auto 0;display:grid;gap:10px;text-align:left}.faq details{background:var(--bg2);border-radius:20px;padding:0 22px}.faq summary{cursor:pointer;list-style:none;padding:18px 0;font-weight:600;font-size:17px;display:flex;justify-content:space-between;gap:16px}.faq summary::-webkit-details-marker{display:none}.faq summary::after{content:"+";color:var(--accent);font-size:22px;line-height:1}.faq details[open] summary::after{content:"–"}.faq p{margin:0 0 18px;color:var(--muted);font-size:16px;line-height:1.55}</style><a class="skip" href="#catalogue">Aller au catalogue</a>
 <header><div class="bar">
 <a class="brand" href="#top" data-go><svg class="mono" viewBox="-8 0 190 215" style="height:34px" aria-hidden="true" fill="none"><defs><linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--g1)"/><stop offset="0.5" style="stop-color:var(--g2)"/><stop offset="1" style="stop-color:var(--g1)"/></linearGradient></defs><path d="M110 18A81 81 0 1 0 62 171" stroke="url(#lg2)" stroke-width="2.6" stroke-linecap="round"/><path d="M11 20H47L109 172H77Z" fill="url(#lg2)"/><path class="ln" d="M87 168L135 27" stroke-width="3.2"/><rect class="lf" x="137" y="20" width="8" height="152"/><path class="ln" d="M120 172H175" stroke-width="3.2"/></svg><span>MALOHE</span></a>
-<nav aria-label="Navigation principale"><a href="#univers" data-go>Univers</a><a href="#catalogue" data-go>Catalogue</a><a href="#luxury" data-go>Luxury</a><a href="#commander" data-go>Commander</a><a href="#faq" data-go>FAQ</a><a href="#contact" data-go>Contact</a></nav>
+<nav aria-label="Navigation principale"><a href="#catalogue" data-go>Catalogue</a><a href="#luxury" data-go>Luxury</a><a href="#commander" data-go>Commander</a><a href="#faq" data-go>FAQ</a><a href="#contact" data-go>Contact</a></nav>
 <div class="hact"><button class="hsearch" id="hsearch" type="button" aria-label="Rechercher un produit"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.2-4.2"/></svg></button><button class="cartbtn" id="openCart" type="button" aria-label="Ouvrir ma sélection">Ma sélection <span id="count">0</span></button></div>
 </div></header>
 <main id="top">
@@ -447,25 +447,16 @@ var T=k.split(/[^a-z0-9]+/);for(var i=0;i<T.length;i++){var t=T[i];if(t.length<3
 <p class="xsign rv">MALOHE — L’élégance au quotidien.</p>
 </div></section>
 
-<section id="univers"><div class="wrap">
-<div class="eyebrow rv">Collection Chogan</div>
-<h2 class="rv">Se parfumer, parfumer sa maison.</h2>
-<p class="sub rv">Les parfums Olfazeta, les brumes pour le corps et les cheveux, et les parfums d’ambiance pour toute la maison.</p>
-<div class="themes t3" id="themes"></div>
-</div></section>
-
-<section id="beaute"><div class="wrap">
-<div class="eyebrow rv">Beauté</div>
-<h2 class="rv">Sublimer, puis soigner.</h2>
-<p class="sub rv">Le maquillage pour le visage, les lèvres et les yeux, et douze gammes de soins pour le visage, le corps et les cheveux.</p>
-<div class="themes t2" id="themes2"></div>
-</div></section>
 
 
 
 
 
 
+
+
+
+<div id="themes" hidden></div><div id="themes2" hidden></div>
 <section class="cat" id="catalogue"><div class="wrap">
 <div class="eyebrow">Catalogue</div>
 <h2>La collection Chogan.</h2>
@@ -517,7 +508,7 @@ var T=k.split(/[^a-z0-9]+/);for(var i=0;i<T.length;i++){var t=T[i];if(t.length<3
 </div></section>
 </main>
 <footer><div class="wrap"><svg class="logo" viewBox="28 28 292 292" style="height:140px" role="img" aria-label="Logo Malohe" fill="none"><defs><linearGradient id="lg3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--g1)"/><stop offset="0.5" style="stop-color:var(--g2)"/><stop offset="1" style="stop-color:var(--g1)"/></linearGradient></defs><path class="arc" d="M200 38A137 137 0 1 0 308 207" stroke-width="1.2" stroke-linecap="round"/><svg x="137" y="94" width="83" height="100" viewBox="0 0 180 215" overflow="visible"><path d="M110 18A81 81 0 1 0 62 171" stroke="url(#lg3)" stroke-width="2.6" stroke-linecap="round"/><path d="M11 20H47L109 172H77Z" fill="url(#lg3)"/><path class="ln" d="M87 168L135 27" stroke-width="3.2"/><rect class="lf" x="137" y="20" width="8" height="152"/><path class="ln" d="M120 172H175" stroke-width="3.2"/></svg><text x="185.5" y="224" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="25" letter-spacing="19">MALOHE</text></svg><div>© 2026 Malohe, vendeur indépendant Chogan, non affilié à la société Chogan · Prix en euros, donnés à titre indicatif et susceptibles d’évoluer.</div>
-<div class="flinks"><a href="#univers" data-go>Univers</a><a href="#catalogue" data-go>Catalogue</a><a href="#luxury" data-go>Luxury</a><a href="#commander" data-go>Commander</a><a href="#faq" data-go>FAQ</a><a href="#contact" data-go>Contact</a><a href="https://www.instagram.com/malohe.collection/" target="_blank" rel="noopener">Instagram</a></div>
+<div class="flinks"><a href="#catalogue" data-go>Catalogue</a><a href="#luxury" data-go>Luxury</a><a href="#commander" data-go>Commander</a><a href="#faq" data-go>FAQ</a><a href="#contact" data-go>Contact</a><a href="https://www.instagram.com/malohe.collection/" target="_blank" rel="noopener">Instagram</a></div>
 <div>Chogan, Olfazeta et les autres marques citées, ainsi que les visuels des produits, appartiennent à leurs propriétaires. Les marques citées comme inspiration n’ont aucun lien avec Malohe.</div></div></footer>
 
 <button class="mbar" id="mbar" type="button" aria-label="Ouvrir ma sélection"><span id="mcount">0 article</span><span id="mtotal">0,00 €</span><span>Voir ma sélection</span></button>
@@ -986,6 +977,8 @@ decorate();
 .qres{display:grid;gap:8px;margin-bottom:12px}.qres button{display:flex;align-items:center;gap:12px;text-align:left;font:inherit;padding:8px 12px 8px 8px;border-radius:14px;border:0;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);color:var(--ink);cursor:pointer}
 .qres img{width:52px;height:52px;object-fit:contain;background:#fff;border-radius:10px;flex:none}.qres span{display:grid;gap:2px}.qres b{font-size:15px;font-weight:600}.qres small{font-size:12.5px;color:var(--muted)}
 .qnote{font-size:13px;color:var(--muted);margin:4px 0 12px}.qbox .btn{width:100%;text-align:center}
+/* 31/10/2026 : bandeaux d’univers et de gamme au-dessus des produits retirés */
+#ubanner,#banner .banner{display:none!important}
 /* tri par prix */
 .mrow{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .sortw{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
