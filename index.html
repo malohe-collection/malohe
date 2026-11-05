@@ -1212,7 +1212,7 @@ html{scroll-padding-top:var(--hh,56px)!important}section{scroll-margin-top:0!imp
 var hd=document.querySelector('header');function hh(){if(hd)document.documentElement.style.setProperty('--hh',hd.offsetHeight+'px')}hh();addEventListener('resize',hh);
 var R=document.getElementById('crue'),C=document.getElementById('ccp'),V=document.getElementById('cville');if(!R||!C||!V)return;
 var API='https://data.geopf.fr/geocodage/search',GEO='https://geo.api.gouv.fr/communes';
-var S={s:'',k:''},tS=0,tV=0,seq=0,vseq=0;
+var S={s:'',k:''},tS=0,tV=0,seq=0,vseq=0,picked='';
 function norm(x){return (x||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,' ').trim()}
 function key(){return norm(R.value)+'|'+C.value.trim()+'|'+norm(V.value)}
 function full(){return R.value.trim().length>2&&/^\d{5}$/.test(C.value.trim())&&V.value.trim()}
@@ -1230,10 +1230,10 @@ function near(p){show('near','Vouliez-vous dire « '+p.name+', '+p.postcode+' '+
  var b=document.createElement('button');b.type='button';b.textContent='garder ma saisie';b.onclick=function(){S.s='forced';S.k=key();show('forced','Adresse conservée telle que saisie.');stat.className='wait'};
  stat.appendChild(a);stat.appendChild(document.createTextNode(' · '));stat.appendChild(b);stat.className='ko'}
 function fire(n){n.dispatchEvent(new Event('input',{bubbles:true}))}
-function pick(p){R.value=p.name||R.value;C.value=p.postcode||C.value;V.value=p.city||V.value;[R,C,V].forEach(fire);sug.hidden=true;S.k=key();
+function pick(p){clearTimeout(tS);seq++;R.value=p.name||R.value;picked=R.value;C.value=p.postcode||C.value;V.value=p.city||V.value;[R,C,V].forEach(fire);clearTimeout(tS);seq++;sug.hidden=true;sug.textContent='';R.blur();S.k=key();
  if(p.type==='housenumber')show('ok','✓ Adresse reconnue');else{show('ko','Ajoutez le numéro dans la rue, ou ');S.s='ko';R.focus()}}
-function suggest(){clearTimeout(tS);var q=R.value.trim();if(q.length<4){sug.hidden=true;return}
- tS=setTimeout(function(){var my=++seq,cp=C.value.trim();var u=API+'?index=address&autocomplete=1&limit=5&q='+encodeURIComponent(q)+(/^\d{5}$/.test(cp)?'&postcode='+cp:'');
+function suggest(){clearTimeout(tS);var q=R.value.trim();if(q.length<4||R.value===picked){sug.hidden=true;return}
+ tS=setTimeout(function(){if(R.value===picked){sug.hidden=true;return}var my=++seq,cp=C.value.trim();var u=API+'?index=address&autocomplete=1&limit=5&q='+encodeURIComponent(q)+(/^\d{5}$/.test(cp)?'&postcode='+cp:'');
   get(u,4000).then(function(j){if(my!==seq)return;var fs=(j.features||[]).map(function(f){return f.properties}).filter(function(p){return p.type==='housenumber'||p.type==='street'});
    sug.textContent='';if(!fs.length||document.activeElement!==R){sug.hidden=true;return}
    fs.forEach(function(p){var b=document.createElement('button');b.type='button';b.setAttribute('role','option');var t=document.createElement('span');t.textContent=p.name;var s=document.createElement('small');s.textContent=p.postcode+' '+p.city;b.appendChild(t);b.appendChild(s);
