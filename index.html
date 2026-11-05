@@ -418,9 +418,9 @@ var T=k.split(/[^a-z0-9]+/);for(var i=0;i<T.length;i++){var t=T[i];if(t.length<3
 <body>
 <a class="skip" href="#catalogue">Aller au catalogue</a>
 <style>.card{position:relative}.card::after{content:"Chogan";position:absolute;top:12px;left:12px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);background:rgba(255,255,255,.88);padding:3px 9px;border-radius:99px;pointer-events:none}.faq{max-width:760px;margin:34px auto 0;display:grid;gap:10px;text-align:left}.faq details{background:var(--bg2);border-radius:20px;padding:0 22px}.faq summary{cursor:pointer;list-style:none;padding:18px 0;font-weight:600;font-size:17px;display:flex;justify-content:space-between;gap:16px}.faq summary::-webkit-details-marker{display:none}.faq summary::after{content:"+";color:var(--accent);font-size:22px;line-height:1}.faq details[open] summary::after{content:"–"}.faq p{margin:0 0 18px;color:var(--muted);font-size:16px;line-height:1.55}</style><a class="skip" href="#catalogue">Aller au catalogue</a>
-<header><div class="bar">
+<div id="pfrib" class="pfrib"><div class="pfw"><span>✦ <b>Offres des fêtes</b> jusqu’au 15 décembre : un produit offert pour l’achat de certains duos</span><a href="#fetes" data-go>Voir les offres</a></div></div><header><div class="bar">
 <a class="brand" href="#top" data-go><svg class="mono" viewBox="-8 0 190 215" style="height:34px" aria-hidden="true" fill="none"><defs><linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--g1)"/><stop offset="0.5" style="stop-color:var(--g2)"/><stop offset="1" style="stop-color:var(--g1)"/></linearGradient></defs><path d="M110 18A81 81 0 1 0 62 171" stroke="url(#lg2)" stroke-width="2.6" stroke-linecap="round"/><path d="M11 20H47L109 172H77Z" fill="url(#lg2)"/><path class="ln" d="M87 168L135 27" stroke-width="3.2"/><rect class="lf" x="137" y="20" width="8" height="152"/><path class="ln" d="M120 172H175" stroke-width="3.2"/></svg><span>MALOHE</span></a>
-<nav aria-label="Navigation principale"><a href="#catalogue" data-go>Catalogue</a><a href="#luxury" data-go>Luxury</a><a href="#commander" data-go>Commander</a><a href="#faq" data-go>FAQ</a><a href="#contact" data-go>Contact</a></nav>
+<nav aria-label="Navigation principale"><a href="#fetes" data-go class="pfnav">Offres</a><a href="#catalogue" data-go>Catalogue</a><a href="#luxury" data-go>Luxury</a><a href="#commander" data-go>Commander</a><a href="#faq" data-go>FAQ</a><a href="#contact" data-go>Contact</a></nav>
 <div class="hact"><button class="hsearch" id="hsearch" type="button" aria-label="Rechercher un produit"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.2-4.2"/></svg></button><button class="cartbtn" id="openCart" type="button" aria-label="Ouvrir ma sélection">Ma sélection <span id="count">0</span></button></div>
 </div></header>
 <main id="top">
@@ -434,6 +434,90 @@ var T=k.split(/[^a-z0-9]+/);for(var i=0;i<T.length;i++){var t=T[i];if(t.length<3
 <div class="facts rv"><div><b id="f1">600+</b><span>produits</span></div><div><b>6</b><span>univers</span></div><div><b>18</b><span>gammes de soins</span></div><div><b>Chogan</b><span>vendeur indépendant</span></div></div>
 </section>
 
+<section id="fetes" class="pf" aria-labelledby="pft">
+<div class="pfstage"><canvas id="pfsnow" aria-hidden="true"></canvas><div class="pfw pfhead">
+ <div><div class="pfeye">Holiday Time · jusqu’au 15 décembre</div>
+ <h2 id="pft">La saison des <em>petites attentions</em></h2>
+ <p class="pflead">Pour chaque duo choisi, je vous offre le troisième produit.</p></div>
+ <div class="pfside"><div class="pfk">Fin des offres dans</div><div class="pfcount"><div><b id="pfd">–</b><span>jours</span></div><div><b id="pfh">–</b><span>heures</span></div><div><b id="pfm">–</b><span>min</span></div></div>
+ </div>
+</div></div>
+<div class="pfw pfbody">
+ <div class="pfbar"><div><div class="eyebrow">Les duos des fêtes</div><h3 class="pfh3">Deux produits achetés, le troisième offert</h3>
+ <p class="pfsub">Ajoutez le duo à votre sélection : le produit offert s’y ajoute tout seul, à&nbsp;0&nbsp;€.</p></div>
+ <div class="pfchips" role="group" aria-label="Filtrer les offres"><button type="button" class="pfchip" data-f="all" aria-pressed="true">Tout</button><button type="button" class="pfchip" data-f="soin" aria-pressed="false">Soins visage</button><button type="button" class="pfchip" data-f="parfum" aria-pressed="false">Parfums</button><button type="button" class="pfchip" data-f="bougie" aria-pressed="false">Bougies</button></div></div>
+ <div class="pfrail"><div class="pfgrid" id="pfgrid"></div><button type="button" class="pfo pfo-l" data-d="-1" aria-label="Offres précédentes" hidden>‹</button><button type="button" class="pfo pfo-r" data-d="1" aria-label="Offres suivantes">›</button></div>
+ <div class="pfbar pfbar2"><div><div class="eyebrow">Petits prix</div><h3 class="pfh3">−30&nbsp;% sur une sélection</h3>
+ <p class="pfsub">Étuis de poche, faux cils et grands diffuseurs Cooperativa Profumieri, tant que l’offre dure.</p></div></div>
+ <div class="pfrail"><div class="pfdeals" id="pfdeals"></div><button type="button" class="pfo pfo-l" data-d="-1" aria-label="Offres précédentes" hidden>‹</button><button type="button" class="pfo pfo-r" data-d="1" aria-label="Offres suivantes">›</button></div>
+ <p class="pflegal">Prix public conseillé : prix indiqué par la marque. Offres « 1 offert » valables jusqu’au 15 décembre 2026 à 23&nbsp;h&nbsp;59, selon les conditions de la marque et dans la limite des quantités disponibles.</p>
+</div></section><script>(function(){var P={"fin": "2026-12-15T23:59:00+01:00", "sets": [{"id": "glow", "la": ["Crème visage", "50 ml"], "lb": ["Sérum gel", "50 ml"], "f": "soin", "nom": "Holiday Glow Set", "ligne": "Acide hyaluronique", "txt": "La crème visage et le sérum gel de la ligne à l’acide hyaluronique, avec le gel nettoyant au baobab en cadeau.", "a": "CR05C", "b": "CR08C", "g": {"c": "Gel nettoyant", "r": "BA001", "t": "Gel nettoyant baobab", "l": "260 ml", "v": 24.9}}, {"id": "fresh", "la": ["Crème de jour", "50 ml"], "lb": ["Crème de nuit", "50 ml"], "f": "soin", "nom": "Festive Freshness Set", "ligne": "Aloe vera", "txt": "Le duo jour et nuit à l’aloe vera, et le contour des yeux de la même ligne offert.", "a": "CR03C", "b": "AL12", "g": {"c": "Contour des yeux", "r": "CR22B", "t": "Contour des yeux aloe vera", "l": "15 ml", "v": 26.9}}, {"id": "snow", "la": ["Crème de jour", "50 ml"], "lb": ["Crème de nuit", "50 ml"], "f": "soin", "nom": "Snowy Caress Set", "ligne": "Lait d’ânesse", "txt": "Les crèmes de jour et de nuit au lait d’ânesse, avec le contour des yeux à l’aloe vera offert.", "a": "LA04C", "b": "LA05C", "g": {"c": "Contour des yeux", "r": "CR22B", "t": "Contour des yeux aloe vera", "l": "15 ml", "v": 26.9}}, {"id": "radiance", "la": ["Crème visage", "50 ml"], "lb": ["Contour des yeux", "15 ml"], "f": "soin", "nom": "New Year Radiance Set", "ligne": "Bave d’escargot", "txt": "La crème visage et le contour des yeux à la bave d’escargot, avec le gel nettoyant de la ligne offert.", "a": "CR02C", "b": "BV04B", "g": {"c": "Gel nettoyant", "r": "BV12B", "t": "Gel nettoyant bave d’escargot", "l": "260 ml", "v": 24.9}}, {"id": "frost", "la": ["Crème visage", "50 ml"], "lb": ["Masque visage", "50 ml"], "f": "soin", "nom": "Frosted Beauty Set", "ligne": "Huile d’argan", "txt": "La crème visage et le masque à l’huile d’argan, avec le gel nettoyant au baobab offert.", "a": "AR10C", "b": "AR07B", "g": {"c": "Gel nettoyant", "r": "BA001", "t": "Gel nettoyant baobab", "l": "260 ml", "v": 24.9}}, {"id": "reset", "la": ["Crème visage", "50 ml"], "lb": ["Gel purifiant", "100 ml"], "f": "soin", "nom": "Holiday Reset Set", "ligne": "Neem · acide salicylique", "txt": "La crème visage à l’huile de neem et le gel visage purifiant, avec le gel exfoliant offert.", "a": "NM06C", "b": "GEL01B", "g": {"c": "Gel exfoliant", "r": "CR09B", "t": "Gel exfoliant visage", "l": "50 ml", "v": 21.9}}, {"id": "wishes", "la": ["Parfum", "70 ml"], "lb": ["Recharge", "15 ml"], "f": "parfum", "nom": "Secret Wishes Set", "ligne": "133 Enigma · femme", "txt": "Le parfum 70 ml et sa recharge 15 ml, avec un étui de poche Modern offert dans le coloris de votre choix.", "a": "P133-70", "b": "P133-15", "etui": 1, "g": {"t": "Étui de poche Modern", "l": "coloris au choix", "v": 13.0}}, {"id": "elegance", "la": ["Parfum", "70 ml"], "lb": ["Recharge", "15 ml"], "f": "parfum", "nom": "Festive Elegance Set", "ligne": "001 Prestige for Him · homme", "txt": "Le parfum 70 ml et sa recharge 15 ml, avec un étui de poche Modern offert dans le coloris de votre choix.", "a": "P1-70", "b": "P1-15", "etui": 1, "g": {"t": "Étui de poche Modern", "l": "coloris au choix", "v": 13.0}}, {"id": "forest", "la": ["Parfum", "50 ml"], "lb": ["Recharge", "15 ml"], "f": "parfum", "nom": "Winter Forest Set", "ligne": "129 Chlorophyll · Luxury", "txt": "Le parfum Luxury 50 ml et sa recharge 15 ml, avec un étui de poche Modern offert dans le coloris de votre choix.", "a": "P129-50", "b": "P129-15", "etui": 1, "g": {"t": "Étui de poche Modern", "l": "coloris au choix", "v": 13.0}}, {"id": "spark", "f": "bougie", "nom": "Sparkling Moments Set", "ligne": "Bougies 400 g", "txt": "Deux grandes bougies parfumées au choix, la troisième offerte dans la senteur de votre choix.", "bougies": 1, "g": {"t": "Bougie parfumée", "l": "400 g, senteur au choix", "v": 64.9}}], "etuis": [["TCOV016", "Bleu et violet", "linear-gradient(135deg,#34478a 50%,#7a4f9a 50%)"], ["TCOV017", "Rose et marron", "linear-gradient(135deg,#d99aa8 50%,#7a5038 50%)"], ["TCOV018", "Fuchsia et rouge", "linear-gradient(135deg,#c2307a 50%,#b3262b 50%)"]], "bougies": [["COPC001", "Roséa"], ["COPC003", "Muské"], ["COPC005", "Lavéa"], ["COPC007", "Mélia"], ["COPC009", "Noiré"]], "m30": [{"r": "TCOV004", "o": 15.0, "l": "Pour recharges 15 ml"}, {"r": "TCOV005", "o": 15.0, "l": "Pour recharges 15 ml"}, {"r": "TCOV006", "o": 15.0, "l": "Pour recharges 15 ml"}, {"r": "ELS07", "o": 14.9, "txt": "Faux cils en bande", "l": "5 modèles"}, {"r": "ELS06", "o": 16.9}, {"r": "ELS13", "o": 16.9}, {"r": "COP0014", "o": 190.0, "l": "1,5 l et 3 l"}, {"r": "COP0029", "o": 190.0, "l": "1,5 l et 3 l"}, {"r": "COP0019", "o": 190.0, "l": "1,5 l et 3 l"}, {"r": "COP0024", "o": 190.0, "l": "1,5 l et 3 l"}, {"r": "COP0009", "o": 190.0, "l": "1,5 l et 3 l"}, {"r": "COP0004", "o": 190.0, "l": "1,5 l et 3 l"}], "r30": ["TCOV004", "TCOV005", "TCOV006", "ELS06", "ELS07", "ELS08", "ELS09", "ELS10", "ELS11", "ELS12", "ELS13", "COP0004", "COP0005", "COP0009", "COP0010", "COP0014", "COP0015", "COP0019", "COP0020", "COP0024", "COP0025", "COP0029", "COP0030"]};var M=null,D=null;
+var FIN=new Date(P.fin).getTime();if(Date.now()>FIN){document.documentElement.classList.add('pfoffh');document.addEventListener('DOMContentLoaded',function(){document.body.classList.add('pfoff');[].forEach.call(document.querySelectorAll('a[href="#fetes"]'),function(x){x.remove()})});return}
+function eur(x){return x.toFixed(2).replace('.',',')+' €'}
+var IDX={};function boot(){if(M)return!!M;M=window.__mal||null;if(!M)return false;D=M.D;D.cards.forEach(function(c){c.v.forEach(function(v){IDX[v.r]={c:c,v:v}})});return true}
+function im(r){var x=IDX[r];if(!x)return'';var k=x.v.im||x.c.im;return D.imgs[k]||''}
+var CH={};try{CH=JSON.parse(localStorage.getItem('malohe-promo')||'{}')}catch(e){CH={}}
+function chSave(){try{localStorage.setItem('malohe-promo',JSON.stringify(CH))}catch(e){}}
+var BR=P.bougies.map(function(b){return b[0]});
+function q(cart,r){return cart[r]?cart[r].q:0}
+function gifts(cart){var L=[];P.sets.forEach(function(s){var n=0;if(s.bougies){var t=0;BR.forEach(function(r){t+=q(cart,r)});n=Math.floor(t/2)}else n=Math.min(q(cart,s.a),q(cart,s.b));
+ if(!n)return;var g={s:s,n:n,t:s.g.t,l:s.g.l,r:s.g.r||''};
+ if(s.etui){var e=P.etuis[CH[s.id]||0];g.t='Étui de poche Modern';g.l=e[1];g.r=e[0];g.opts=P.etuis;g.k=s.id}
+ if(s.bougies){var b=P.bougies[CH.spark||0];g.t='Bougie '+b[1];g.l='400 g';g.r=b[0];g.opts=P.bougies;g.k='spark'}
+ L.push(g)});return L}
+window.__promoRows=function(cart,items,el){if(!boot())return;gifts(cart).forEach(function(g){var r=el('div','item pfree');var src=im(g.r);if(src){var th=el('img','cth');th.src=src;th.alt='';r.appendChild(th)}
+ var l=el('div','cinfo');l.appendChild(el('div','t','Offert · '+g.t));l.appendChild(el('div','l',g.s.nom+(g.n>1?' × '+g.n:'')+(g.opts?'':' · '+g.l)));
+ if(g.opts){var se=document.createElement('select');se.setAttribute('aria-label',g.s.etui?'Coloris de l’étui offert':'Senteur de la bougie offerte');g.opts.forEach(function(o,i){var op=document.createElement('option');op.value=i;op.textContent=o[1];if(i===(CH[g.k]||0))op.selected=true;se.appendChild(op)});se.onchange=function(){CH[g.k]=+se.value;chSave();M.renderCart();if(window.__pfPaint)window.__pfPaint()};l.appendChild(se)}
+ r.appendChild(l);var rt=el('div','rt');rt.appendChild(el('strong',null,'0,00 €'));r.appendChild(rt);items.appendChild(r)})};
+window.__promoLines=function(cart){if(!boot())return[];return gifts(cart).map(function(g){return '• OFFERT ('+g.s.nom+') : '+g.t+(g.s.etui?' – coloris '+g.l.toLowerCase():' ('+g.l+')')+(g.r?' – réf. '+g.r:'')+' × '+g.n+' : 0,00 €'})};
+var B={};P.sets.forEach(function(s){if(s.a){B[s.a]='g';B[s.b]='g'}});BR.forEach(function(r){B[r]='g'});P.r30.forEach(function(r){B[r]='m'});
+window.__promoBadge=function(c,a){var t='';c.v.forEach(function(v){if(B[v.r]==='m')t='m';else if(B[v.r]==='g'&&!t)t='g'});if(!t)return;var s=document.createElement('span');s.className='pfb '+t;s.textContent=t==='m'?'−30 %':'1 offert';a.appendChild(s)};
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function fig(r,cap,gift,col){var src=gift&&!r?'':im(r),cs=' style="grid-column:'+col+'"';return '<figure class="'+(gift?'pfgift':'')+'"><button type="button"'+cs+' data-open="'+esc(r||'')+'" aria-label="Voir la fiche : '+esc(cap[0])+'">'+(gift?'<span class="pftag">Offert</span>':'')+'<img loading="lazy" alt="" src="'+src+'"></button><figcaption'+cs+'>'+esc(cap[0])+'<br>'+esc(cap[1])+'</figcaption></figure>'}
+function op(s,col){return '<span class="pfop" style="grid-column:'+col+'" aria-hidden="true">'+s+'</span>'}
+function lab(r){var x=IDX[r];return x?[x.c.t.replace(/^\d{3}\s+/,''),x.v.l.replace(' · recharge étui','').replace(' · épuisé','')]:[r,'']}
+function card(s){var h='<article class="pfset" data-f="'+s.f+'" data-id="'+s.id+'">';
+ if(s.bougies){var b1=P.bougies[0][0],b2=P.bougies[4][0],gb=P.bougies[CH.spark||0][0];
+  h+='<div class="pfcombo">'+fig(b1,[P.bougies[0][1],'400 g'],0,1)+op('+',2)+fig(b2,[P.bougies[4][1],'400 g'],0,3)+op('=',4)+fig(gb,[P.bougies[CH.spark||0][1],'offerte'],1,5)+'</div>'}
+ else{var gr=s.etui?P.etuis[CH[s.id]||0][0]:s.g.r;h+='<div class="pfcombo">'+fig(s.a,s.la||lab(s.a),0,1)+op('+',2)+fig(s.b,s.lb||lab(s.b),0,3)+op('=',4)+fig(gr,[s.g.c||s.g.t.replace(' Modern',''),s.etui?'au choix':s.g.l],1,5)+'</div>'}
+ h+='<div><div class="pfline">'+esc(s.ligne)+'</div><h4>'+esc(s.nom)+'</h4></div><p>'+esc(s.txt)+'</p>';
+ var tot=0;
+ if(s.etui){h+='<div class="pfdots" role="group" aria-label="Coloris de l’étui offert"><span>Étui offert :</span>'+P.etuis.map(function(e,i){return '<button type="button" class="pfdot" data-set="'+s.id+'" data-i="'+i+'" style="background:'+e[2]+'" aria-pressed="'+((CH[s.id]||0)===i)+'" aria-label="'+e[1]+'" title="'+e[1]+'"></button>'}).join('')+'<span class="pfen">'+P.etuis[CH[s.id]||0][1]+'</span></div>'}
+ if(s.bougies){var o=function(sel){return P.bougies.map(function(b,i){return '<option value="'+b[0]+'"'+(i===sel?' selected':'')+'>'+b[1]+'</option>'}).join('')};
+  h+='<div class="pfsel"><label>1re bougie<select data-b="1">'+o(0)+'</select></label><label>2e bougie<select data-b="2">'+o(4)+'</select></label><label class="pfg">Offerte<select data-b="g">'+P.bougies.map(function(b,i){return '<option value="'+i+'"'+(i===(CH.spark||0)?' selected':'')+'>'+b[1]+'</option>'}).join('')+'</select></label></div>';tot=2*IDX[P.bougies[0][0]].v.p}
+ else tot=IDX[s.a].v.p+IDX[s.b].v.p;
+ h+='<div class="pfprice"><b>'+eur(tot)+'</b><small>+ '+esc((s.bougies?'une bougie':s.g.t.replace(' Modern','').toLowerCase()))+' offert'+(s.bougies?'e':'')+' ('+eur(s.g.v)+')</small></div><button type="button" class="btn pfadd" data-add="'+s.id+'">'+(s.bougies?'Ajouter mes 2 bougies':'Ajouter le duo')+'</button></article>';return h}
+var ok=[],G;function init(){if(!boot())return;G=document.getElementById('pfgrid');ok=P.sets.filter(function(s){return s.bougies?BR.every(function(r){return IDX[r]}):(IDX[s.a]&&IDX[s.b])});
+G.innerHTML=ok.map(card).join('');
+function paintCards(){ok.forEach(function(s){var a=G.querySelector('[data-id="'+s.id+'"]');if(!a)return;var gi=a.querySelector('.pfgift img'),gb=a.querySelector('.pfgift button');var r=s.etui?P.etuis[CH[s.id]||0][0]:(s.bougies?P.bougies[CH.spark||0][0]:s.g.r);gi.src=im(r);gb.dataset.open=r;
+ if(s.etui){a.querySelectorAll('.pfdot').forEach(function(d){d.setAttribute('aria-pressed',String(+d.dataset.i===(CH[s.id]||0)))});a.querySelector('.pfen').textContent=P.etuis[CH[s.id]||0][1]}
+ if(s.bougies){a.querySelector('[data-b="g"]').value=String(CH.spark||0);var fcs=a.querySelectorAll('.pfcombo figcaption');fcs[2].innerHTML=esc(P.bougies[CH.spark||0][1])+'<br>offerte'}})}
+window.__pfPaint=paintCards;G.addEventListener('click',function(e){var d=e.target.closest('.pfdot');if(d){CH[d.dataset.set]=+d.dataset.i;chSave();paintCards();M.renderCart();return}
+ var o=e.target.closest('[data-open]');if(o){var x=IDX[o.dataset.open];if(x)M.openP(x.c);return}
+ var b=e.target.closest('[data-add]');if(!b)return;var s=P.sets.filter(function(z){return z.id===b.dataset.add})[0];
+ if(s.bougies){var a=b.closest('.pfset');[a.querySelector('[data-b="1"]').value,a.querySelector('[data-b="2"]').value].forEach(function(r){M.add(IDX[r].c,IDX[r].v)})}
+ else[s.a,s.b].forEach(function(r){M.add(IDX[r].c,IDX[r].v)});
+ setTimeout(function(){var t=document.getElementById('toast');if(t)t.textContent='Duo ajouté · produit offert inclus'},0)});
+G.addEventListener('change',function(e){var t=e.target;if(t.dataset.b==='g'){CH.spark=+t.value;chSave();paintCards();M.renderCart()}else if(t.dataset.b){var a=t.closest('.pfset'),k=+t.dataset.b-1,bt=a.querySelectorAll('.pfcombo button')[k],fc=a.querySelectorAll('.pfcombo figcaption')[k];bt.querySelector('img').src=im(t.value);bt.dataset.open=t.value;fc.innerHTML=esc(t.options[t.selectedIndex].text)+'<br>400 g'}});
+document.querySelectorAll('.pfchip').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.pfchip').forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});
+ var f=b.dataset.f;G.querySelectorAll('.pfset').forEach(function(c){c.hidden=!(f==='all'||c.dataset.f===f)});G.scrollLeft=0;if(G.__upd)setTimeout(G.__upd,30)})});
+var DL=document.getElementById('pfdeals');DL.innerHTML=P.m30.filter(function(d){return IDX[d.r]}).map(function(d){var x=IDX[d.r],pc=Math.round((1-x.v.p/d.o)*100);
+ return '<button type="button" class="pfdeal" data-open="'+d.r+'"><div class="ph"><img loading="lazy" alt="" src="'+im(d.r)+'"><span class="pfpct">−'+pc+' %</span></div><div class="bd"><h4>'+esc(d.txt||x.c.t.replace('Étui parfum de poche – ','Étui '))+'</h4><div class="sub">'+esc(d.l||x.v.l)+'</div><div class="pp"><b>'+(d.l&&d.l.indexOf('et')>0?'dès ':'')+eur(x.v.p)+'</b><span>Prix public conseillé : '+eur(d.o)+'</span></div></div></button>'}).join('');
+DL.addEventListener('click',function(e){var o=e.target.closest('[data-open]');if(o){var x=IDX[o.dataset.open];if(x)M.openP(x.c)}});
+[].forEach.call(document.querySelectorAll('.pfrail'),function(w){var R=w.firstElementChild,bs=w.querySelectorAll('.pfo');function upd(){var m=R.scrollWidth-R.clientWidth-4;bs[0].hidden=R.scrollLeft<=4;bs[1].hidden=R.scrollLeft>=m;w.classList.toggle('end',R.scrollLeft>=m)}[].forEach.call(bs,function(b){b.onclick=function(){var c=R.querySelector(':scope>:not([hidden])');var st=c?c.getBoundingClientRect().width+18:R.clientWidth;R.scrollBy({left:+b.dataset.d*st,behavior:'smooth'})}});R.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);setTimeout(upd,50);R.__upd=upd});
+function tick(){var r=Math.max(0,FIN-Date.now());if(!r){document.body.classList.add('pfoff');return}
+ document.getElementById('pfd').textContent=Math.floor(r/864e5);document.getElementById('pfh').textContent=String(Math.floor(r%864e5/36e5)).padStart(2,'0');document.getElementById('pfm').textContent=String(Math.floor(r%36e5/6e4)).padStart(2,'0')}
+tick();setInterval(tick,30000);M.renderCart();
+(function(){var c=document.getElementById('pfsnow');if(!c||!c.getContext)return;var x=c.getContext('2d'),Pt=[],W=0,H=0,dpr=Math.min(2,window.devicePixelRatio||1),vis=true;
+ var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+ function size(){W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0)}size();window.addEventListener('resize',size);
+ for(var i=0;i<60;i++)Pt.push({x:Math.random(),y:Math.random(),r:.6+Math.random()*1.7,v:.0004+Math.random()*.0008,a:.25+Math.random()*.5,s:Math.random()*6});
+ if('IntersectionObserver' in window)new IntersectionObserver(function(en){vis=en[0].isIntersecting;if(vis&&!still)requestAnimationFrame(draw)}).observe(c);
+ function draw(t){x.clearRect(0,0,W,H);Pt.forEach(function(p){if(!still){p.y+=p.v;if(p.y>1.02)p.y=-.02}var px=(p.x+Math.sin((t||0)/3000+p.s)*.01)*W;x.beginPath();x.arc(px,p.y*H,p.r,0,6.283);x.fillStyle='rgba(232,207,163,'+p.a+')';x.fill()});if(!still&&vis)requestAnimationFrame(draw)}
+ requestAnimationFrame(draw)})();
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();</script>
 <section class="exc" id="excellence"><div class="wrap">
 <div class="eyebrow rv">Parfums</div>
 <h2 class="rv">L’excellence du parfum, autrement.</h2>
@@ -585,13 +669,13 @@ function renderSub0(){var s=$('#subnav'),lb=$('#luxbar');s.textContent='';lb.tex
  lb.hidden=true;if(st.th==='parfums'&&!st.lx){var x=el('button','sub lxp','✦ Collection Luxury');x.type='button';x.onclick=function(){goTheme('parfums',1,0)};s.appendChild(x)}}
 function renderChips(){}
 function add(c,v){var cur=cart[v.r];if(cur)cur.q++;else cart[v.r]={r:v.r,t:c.t,l:v.l,p:v.p,q:1,im:v.im||c.im};
- save();renderCart();toast('Ajouté à ma sélection')}
+ save();renderCart();toast('Ajouté à ma sélection')}window.__mal={add:add,cart:function(){return cart},D:D,openP:function(c){openP(c)},renderCart:function(){renderCart()}};
 function setTitle(h,t){t.split(/(\d+)/).forEach(function(p,i){if(!p)return;if(i%2){h.appendChild(el('span','dg',p))}else h.appendChild(document.createTextNode(p))})}
 function splitNum(t){var m=t.match(/^(\d{3})\s+(.+)$/);if(m)return{n:m[1],t:m[2]};m=t.match(/^Parfum n°(\d{3})$/);if(m)return{n:m[1],t:'Parfum'};return{n:'',t:t}}
 function renderGrid(){var g=$('#grid');g.textContent='';var L=list();var bn=$('#banner');bn.textContent='';if(st.th==='parfums'){var ip=el('p','insp');var ia=el('a',null,'Parcourez notre liste d’inspirations');if(window.__inspU)ia.href=window.__inspU;else ia.hidden=true;var ial=el('span','ialt','Pour recevoir la liste complète des parfums, ');var icl=el('a',null,'contactez-moi');icl.href='#contact';icl.onclick=function(e){e.preventDefault();var n=document.querySelector('a[data-go][href$=contact]');if(n)n.click()};ial.appendChild(icl);ial.appendChild(document.createTextNode('.'));ip.appendChild(ial);ia.target='_blank';ia.rel='noopener';ip.appendChild(ia);var qz=el('button','qzbtn','✦ Trouver mon parfum');qz.type='button';qz.onclick=function(){if(window.__quiz)window.__quiz()};ip.appendChild(qz);bn.appendChild(ip)}var gb=D.gb[st.g];if(st.g!=='all'&&gb){var bb=el('div','banner');var bi=el('img');bi.src=D.imgs[gb.im];bi.alt='Produits : '+st.g;bb.appendChild(bi);var bt=el('div');bt.appendChild(el('h3',null,st.g));bt.appendChild(el('p',null,gb.d));bb.appendChild(bt);bn.appendChild(bb)}
  g.className='grid'+(st.noanim?'':' anim');L.slice(0,st.n).forEach(function(c,ci){var a=el('article','card');a.style.setProperty('--i',String(ci%12));function sw(v){if(v.im&&im&&D.imgs[v.im])im.src=D.imgs[v.im]}if(c.im){var im=el('img','im '+(c.im.indexOf('fl')===0?'flask':((c.im.indexOf('ch_')===0&&c.im.indexOf('LOVE')<0)||/^(mq|sk|ph)_/.test(c.im)||c.g==='Étuis de poche'?'bt':'ph')));if(ci<8||!window.__lzo){im.src=D.imgs[c.im]}else{im.dataset.src=D.imgs[c.im];window.__lzo.observe(im)}im.alt=c.t;im.decoding='async';a.appendChild(im)}var nt=splitNum(c.t);if(nt.n)a.appendChild(el('p','num','n° '+nt.n));var h3=el('h3');setTitle(h3,nt.t);a.appendChild(h3);a.appendChild(el('p','s',c.s));if(c.d)a.appendChild(el('p','d',c.d));
   if(c.n&&c.n.Famille)a.appendChild(el('p','fam',c.n.Famille));if(c.n){var n=el('p','n');Object.keys(c.n).filter(function(k){return k!=='Famille'}).forEach(function(k,i){if(i)n.appendChild(document.createTextNode(' · '));n.appendChild(el('b',null,k+' '));n.appendChild(document.createTextNode(c.n[k]))});a.appendChild(n)}
-  var hb=el('button','heart'+(FAV[fk(c)]?' on':''));hb.type='button';hb.setAttribute('aria-label','Favori : '+c.t);hb.setAttribute('aria-pressed',String(!!FAV[fk(c)]));hb.innerHTML="<svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" aria-hidden=\"true\"><path d=\"M12 20.5s-7.5-4.6-9.2-9.3C1.7 7.9 3.6 5 6.7 5c2 0 3.6 1.1 5.3 3 1.7-1.9 3.3-3 5.3-3 3.1 0 5 2.9 3.9 6.2C19.5 15.9 12 20.5 12 20.5z\"/></svg>";hb.onclick=function(e){e.stopPropagation();var k=fk(c);if(FAV[k])delete FAV[k];else FAV[k]=1;favSave();if(st.fv){st.noanim=1;renderGrid();st.noanim=0}else{hb.classList.toggle('on',!!FAV[k]);hb.setAttribute('aria-pressed',String(!!FAV[k]))}};a.appendChild(hb);var vs=mkVars(c,sw);a.appendChild(vs);a.tabIndex=0;a.setAttribute('role','button');a.setAttribute('aria-label','Voir '+c.t);a.addEventListener('click',function(e){if(e.target.closest('.var,.addsel,.heart'))return;openP(c)});a.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&e.target===a){e.preventDefault();openP(c)}});g.appendChild(a)});
+  var hb=el('button','heart'+(FAV[fk(c)]?' on':''));hb.type='button';hb.setAttribute('aria-label','Favori : '+c.t);hb.setAttribute('aria-pressed',String(!!FAV[fk(c)]));hb.innerHTML="<svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" aria-hidden=\"true\"><path d=\"M12 20.5s-7.5-4.6-9.2-9.3C1.7 7.9 3.6 5 6.7 5c2 0 3.6 1.1 5.3 3 1.7-1.9 3.3-3 5.3-3 3.1 0 5 2.9 3.9 6.2C19.5 15.9 12 20.5 12 20.5z\"/></svg>";hb.onclick=function(e){e.stopPropagation();var k=fk(c);if(FAV[k])delete FAV[k];else FAV[k]=1;favSave();if(st.fv){st.noanim=1;renderGrid();st.noanim=0}else{hb.classList.toggle('on',!!FAV[k]);hb.setAttribute('aria-pressed',String(!!FAV[k]))}};a.appendChild(hb);if(window.__promoBadge)window.__promoBadge(c,a);var vs=mkVars(c,sw);a.appendChild(vs);a.tabIndex=0;a.setAttribute('role','button');a.setAttribute('aria-label','Voir '+c.t);a.addEventListener('click',function(e){if(e.target.closest('.var,.addsel,.heart'))return;openP(c)});a.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&e.target===a){e.preventDefault();openP(c)}});g.appendChild(a)});
  if(!L.length)g.appendChild(el('p','empty',st.fv?'Aucun favori pour le moment. Touchez le cœur d’un produit pour le retrouver ici.':'Aucun produit ne correspond à votre recherche.'));
  $('#meta').textContent=L.length+' produit'+(L.length>1?'s':'')+(L.length>st.n?' · '+st.n+' affichés':'')+(window.__fzU&&L.length?' · résultats approchants':'');
  var _rs=L.length-st.n;$('#more').hidden=_rs<=0;$('#more').textContent=_rs>0?'Voir plus ('+_rs+(_rs>1?' produits restants)':' produit restant)'):''}
@@ -669,7 +753,7 @@ function renderThemes(){D.themes.forEach(function(t){var w=$(['maquillage','soin
  b.appendChild(el('h3',null,t.n));b.appendChild(el('p',null,t.d));b.appendChild(el('small',null,n+' produits'));
  b.onclick=function(){goTheme(t.k,0,1)};w.appendChild(b)})}
 function renderGammes(){var w=$('#gammegrid');if(!w)return;themeOf('soins').g.forEach(function(g){var b=el('button','gtile');b.setAttribute('data-g',g);if(['Argan','Aloe vera','Bave d’escargot','Solaire'].indexOf(g)<0)b.classList.add('gx');b.type='button';var gi=el('div','gi');var im=el('img');im.src=D.imgs[D.gb[g].im];im.alt='Produits de la gamme '+g;gi.appendChild(im);b.appendChild(gi);b.appendChild(el('h3',null,g));b.appendChild(el('p',null,D.gt[g]||''));b.onclick=function(){st.th='soins';st.g=g;st.n=36;st.q='';$('#q').value='';renderAll();$('#catalogue').scrollIntoView({behavior:'smooth'})};w.appendChild(b)})}
-var LIV=[[70, 5.9], [100, 4.0]];function shipBase(x){x=Math.round(x*100)/100;if(x<=0)return 0;for(var k=0;k<LIV.length;k++){if(k===LIV.length-1?x<=LIV[k][0]:x<LIV[k][0])return LIV[k][1]}return 0}function homeDel(){var r=document.querySelector('input[name="cmode"]:checked');return !r||r.value==='dom'}function ship(x){return homeDel()?shipBase(x):0}function addrVal(id){var n=document.getElementById(id);return n?n.value.trim():''}function addrOk(){return !homeDel()||(addrVal('crue')&&/^\d{5}$/.test(addrVal('ccp'))&&addrVal('cville'))}function addrTxt(){var c=addrVal('ccompl');return addrVal('crue')+(c?', '+c:'')+', '+addrVal('ccp')+' '+addrVal('cville')}function shipHint(x){x=Math.round(x*100)/100;if(x<=0||!homeDel())return'';var f=ship(x);if(!f)return'Livraison offerte';for(var k=0;k<LIV.length-1;k++){if(x<LIV[k][0])return'Plus que '+eur(LIV[k][0]-x)+' pour une livraison à '+eur(LIV[k+1][1])}return'Livraison offerte au-delà de '+eur(LIV[LIV.length-1][0])}function buildMsg(){var ids=Object.keys(cart);var lines=[],sum=0;ids.forEach(function(id){var i=cart[id];sum+=i.p*i.q;var nt=splitNum(i.t);lines.push('• '+(nt.n?nt.t+' n°'+nt.n:i.t)+' ('+i.l+')'+(i.r?' – réf. '+i.r:'')+' × '+i.q+' : '+eur(i.p*i.q))});
+var LIV=[[70, 5.9], [100, 4.0]];function shipBase(x){x=Math.round(x*100)/100;if(x<=0)return 0;for(var k=0;k<LIV.length;k++){if(k===LIV.length-1?x<=LIV[k][0]:x<LIV[k][0])return LIV[k][1]}return 0}function homeDel(){var r=document.querySelector('input[name="cmode"]:checked');return !r||r.value==='dom'}function ship(x){return homeDel()?shipBase(x):0}function addrVal(id){var n=document.getElementById(id);return n?n.value.trim():''}function addrOk(){return !homeDel()||(addrVal('crue')&&/^\d{5}$/.test(addrVal('ccp'))&&addrVal('cville'))}function addrTxt(){var c=addrVal('ccompl');return addrVal('crue')+(c?', '+c:'')+', '+addrVal('ccp')+' '+addrVal('cville')}function shipHint(x){x=Math.round(x*100)/100;if(x<=0||!homeDel())return'';var f=ship(x);if(!f)return'Livraison offerte';for(var k=0;k<LIV.length-1;k++){if(x<LIV[k][0])return'Plus que '+eur(LIV[k][0]-x)+' pour une livraison à '+eur(LIV[k+1][1])}return'Livraison offerte au-delà de '+eur(LIV[LIV.length-1][0])}function buildMsg(){var ids=Object.keys(cart);var lines=[],sum=0;ids.forEach(function(id){var i=cart[id];sum+=i.p*i.q;var nt=splitNum(i.t);lines.push('• '+(nt.n?nt.t+' n°'+nt.n:i.t)+' ('+i.l+')'+(i.r?' – réf. '+i.r:'')+' × '+i.q+' : '+eur(i.p*i.q))});if(window.__promoLines)lines=lines.concat(window.__promoLines(cart));
  var nm=$('#cname').value.trim(),ct=$('#ccontact').value.trim(),nt2=$('#cnote').value.trim();
  var msg=ids.length?'Bonjour, je souhaite commander :\n'+lines.join('\n')+'\n\nTotal articles : '+eur(sum)+(homeDel()?'\nLivraison à domicile : '+(ship(sum)?eur(ship(sum)):'offerte')+(addrOk()?'\nAdresse : '+addrTxt():''):'\nRemise en main propre (sans frais)')+'\nTotal à régler : '+eur(sum+ship(sum))+(nm?'\nNom : '+nm:'')+(ct?'\nContact : '+ct:'')+(nt2?'\nRemarque : '+nt2:'')+'\n\nMerci !':'';
  $('#msg').value=msg;var mb=$('#mailBtn');mb.href='mailto:contact.malohe@gmail.com?subject='+encodeURIComponent('Commande Malohe'+(nm?' – '+nm:''))+'&body='+encodeURIComponent(msg);
@@ -685,7 +769,7 @@ function renderCart(){var ids=Object.keys(cart),items=$('#items');items.textCont
   m.onclick=function(){i.q--;if(i.q<=0)delete cart[id];save();renderCart()};p.onclick=function(){i.q++;save();renderCart()};
   q.appendChild(m);q.appendChild(el('span',null,String(i.q)));q.appendChild(p);l.appendChild(q);r.appendChild(l);
   var rt=el('div','rt');rt.appendChild(el('strong',null,eur(i.p*i.q)));var rm=el('button','rm','Retirer');rm.type='button';rm.onclick=function(){delete cart[id];save();renderCart()};rt.appendChild(rm);r.appendChild(rt);items.appendChild(r)});
- if(!ids.length)items.appendChild(el('p','cempty','Votre sélection est vide. Ajoutez des produits depuis le catalogue.'));
+ if(window.__promoRows)window.__promoRows(cart,items,el);if(!ids.length)items.appendChild(el('p','cempty','Votre sélection est vide. Ajoutez des produits depuis le catalogue.'));
  $('#csub').textContent=cnt?cnt+(cnt>1?' articles':' article'):'Votre panier est vide';$('#subtotal').textContent=eur(sum);
  $('#shiplab').textContent=homeDel()?'Livraison':'Remise en main propre';$('#ship').textContent=sum>0?(ship(sum)?eur(ship(sum)):(homeDel()?'Offerte':'Sans frais')):'—';$('#shiphint').textContent=shipHint(sum);$('#shiphint').hidden=!shipHint(sum);$('#total').textContent=eur(sum+ship(sum));if(window.__etuiHint)window.__etuiHint(cart);$('#count').textContent=String(cnt);mbarUpd(cnt,sum);buildMsg()}
 var tt;function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('on')},1600)}
@@ -999,6 +1083,99 @@ html,body{overflow-x:clip}
 .toast{z-index:95!important}body:has(#pm.open) .toast{bottom:auto;top:calc(18px + env(safe-area-inset-top,0px));transform:translate(-50%,-12px)}body:has(#pm.open) .toast.on{transform:translate(-50%,0)}.addsel.okd,.addsel.okd:disabled{background:#3d7a4f!important;color:#fff!important;opacity:1!important}#items .go{cursor:pointer}#items img.go{transition:transform .2s}#items img.go:hover{transform:scale(1.04)}#items .t.go:hover{color:var(--accent)}
 #tobot{position:fixed;right:18px;bottom:22px;z-index:30;width:46px;height:46px;border-radius:50%;border:0;background:var(--glass);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 8px 24px -8px rgba(40,25,10,.4),0 0 0 1px var(--line);color:var(--ink);cursor:pointer;display:grid;place-items:center;opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .3s,transform .3s}#tobot.on{opacity:1;pointer-events:auto;transform:none}@media (max-width:820px){#tobot{bottom:92px;right:14px}}#totop{bottom:78px!important}@media (max-width:820px){#totop{bottom:148px!important}}
 #hmenu{display:none}#mnav{display:none}@media (max-width:700px){#hmenu{display:grid}#mnav:not([hidden]){display:flex;flex-direction:column;position:absolute;left:12px;right:12px;top:calc(100% + 8px);background:var(--surface);border-radius:20px;padding:8px;box-shadow:0 18px 40px -14px rgba(40,25,10,.35),0 0 0 1px var(--line);z-index:70}#mnav a{display:block;padding:14px 16px;border-radius:12px;color:var(--ink);text-decoration:none;font-size:16px}#mnav a:active,#mnav a:hover{background:var(--chip)}header{position:sticky}}
+/* offres des fêtes (05/11/2026) */
+:root{--pfg:#7d2b2b;--pfg-ink:#fff7ee}
+@media (prefers-color-scheme:dark){:root{--pfg:#b5524a}}
+.pfw{max-width:1024px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.pfrib{background:var(--pfg);color:var(--pfg-ink);font-size:13.5px}
+.pfrib .pfw{display:flex;gap:6px 18px;align-items:center;justify-content:center;flex-wrap:wrap;padding-block:9px;text-align:center}
+.pfrib b{font-weight:600}.pfrib a{color:inherit;text-underline-offset:3px;text-decoration:underline}
+.pf{background:var(--bg)}
+#fetes.pf{padding-top:48px!important;padding-bottom:0!important}
+#fetes~#excellence{padding-top:64px!important}
+.pfstage{position:relative;overflow:hidden;border-radius:28px;background:radial-gradient(90% 90% at 20% 0%,#231a14,#100c09 70%);color:#f5efe6}
+#pfsnow{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.pfhead{position:relative;padding-block:30px 28px;display:grid;grid-template-columns:1fr auto;gap:20px 48px;align-items:center}
+.pfeye{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#d9b98a}
+.pf h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(32px,4.2vw,46px);line-height:1.05;margin:6px 0 0;text-wrap:balance;color:#f5efe6}
+.pf h2 em{font-style:italic;font-weight:500;background:linear-gradient(100deg,#e8cfa3,#f3dfb8 45%,#b98a55);-webkit-background-clip:text;background-clip:text;color:transparent}
+.pflead{color:#b9ab98;max-width:46ch;font-size:15px;line-height:1.5;margin:8px 0 0}
+.pfside{border-left:1px solid rgba(232,207,163,.22);padding-left:32px;padding-block:4px}
+.pfk{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#b9ab98;margin-bottom:8px}
+.pfcount{display:flex;gap:22px}
+.pfcount b{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:38px;line-height:1;font-variant-numeric:lining-nums tabular-nums;color:#f3dfb8}
+.pfcount span{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#b9ab98}
+.pfcap{font-size:12.5px;color:#b9ab98;margin:14px 0 0;max-width:30ch}
+.pfbody{padding-block:36px 0}
+.pfbar{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:18px}.pfbar2{margin-top:36px}
+.pfchips{align-items:center}
+.pfrail{position:relative}
+.pfrail::after{content:'';position:absolute;top:0;right:-2px;bottom:8px;width:72px;pointer-events:none;background:linear-gradient(90deg,transparent,var(--bg) 85%);transition:opacity .25s}
+.pfrail.end::after{opacity:0}
+.pfo{position:absolute;top:calc(50% - 26px);z-index:3;width:48px;height:48px;border-radius:50%;border:0;background:var(--ink);color:var(--bg);font:inherit;font-size:28px;line-height:1;padding:0 0 4px;cursor:pointer;display:grid;place-items:center;box-shadow:0 10px 24px -8px rgba(30,20,10,.45);transition:opacity .2s,transform .2s}
+.pfo[hidden]{display:none!important}.pfo:hover{transform:scale(1.06)}.pfo:focus-visible{outline:2px solid var(--accent);outline-offset:3px}.pfo-r{right:-14px}.pfo-l{left:-14px}
+.pfo-r{animation:pfnudge 1.6s ease-in-out 1s 3}@keyframes pfnudge{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
+@media (prefers-reduced-motion:reduce){.pfo-r{animation:none}}
+.pfa{display:none;width:40px;height:40px;border-radius:50%;border:0;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);color:var(--ink);font:inherit;font-size:22px;line-height:1;cursor:pointer;display:grid;place-items:center;padding:0 0 3px}
+.pfa:hover:not(:disabled){box-shadow:inset 0 0 0 1.5px var(--accent)}.pfa:disabled{opacity:.35;cursor:default}
+.pfh3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(28px,3.6vw,38px);line-height:1.08;margin:6px 0 0;text-wrap:balance}
+.pfsub{color:var(--muted);margin:8px 0 0;max-width:60ch;font-size:15px}
+.pfchips{display:flex;gap:8px;flex-wrap:wrap}
+.pfchip{font:inherit;font-size:13.5px;border:0;box-shadow:inset 0 0 0 1px var(--line);background:var(--surface);color:var(--ink);padding:8px 15px;border-radius:99px;cursor:pointer}
+.pfchip[aria-pressed="true"]{background:var(--ink);color:var(--bg);box-shadow:none}
+.pfgrid,.pfdeals{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:2px 2px 8px;margin:0 -2px}
+.pfgrid::-webkit-scrollbar,.pfdeals::-webkit-scrollbar{display:none}
+.pfgrid>.pfset{flex:0 0 calc((100% - 36px)/3);scroll-snap-align:start}
+.pfdeals>.pfdeal{flex:0 0 calc((100% - 54px)/4);scroll-snap-align:start}
+.pfset{background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.pfset[hidden]{display:none}
+.pfcombo{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;grid-template-rows:auto auto;align-items:start;column-gap:6px;row-gap:6px;background:var(--bg2);border-radius:14px;padding:12px 10px}
+.pfcombo figure{display:contents}
+.pfcombo button{all:unset;cursor:pointer;display:block;border-radius:10px;grid-row:1;position:relative;min-width:0}.pfcombo button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.pfcombo img{width:100%;aspect-ratio:1/1;object-fit:contain;border-radius:10px;background:#fff;display:block}
+.pfcombo figcaption{grid-row:2;text-align:center;min-width:0;font-size:11.5px;color:var(--muted);line-height:1.25}
+.pfop{grid-row:1;align-self:center;font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;line-height:1;color:var(--accent)}
+.pfgift img{box-shadow:0 0 0 2px var(--pfg)}.pfgift figcaption{color:var(--pfg);font-weight:600}
+.pfcombo button:has(.pftag){overflow:visible}
+.pftag{position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--pfg);color:var(--pfg-ink);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:4px 8px;border-radius:99px;z-index:1;white-space:nowrap}
+.pfline{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.pfset h4{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:25px;line-height:1.1;margin:2px 0 0}
+.pfset p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+.pfdots{display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--muted);flex-wrap:wrap}
+.pfdot{width:28px;height:28px;border-radius:50%;padding:0;border:2px solid var(--surface);box-shadow:0 0 0 1px var(--line);cursor:pointer;background:#ccc center/cover}
+.pfdot[aria-pressed="true"]{box-shadow:0 0 0 2px var(--ink)}
+.pfsel{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.pfsel label{display:grid;gap:3px;font-size:11px;color:var(--muted);min-width:0}
+.pfsel select{font:inherit;font-size:13px;color:var(--ink);padding:6px 6px;border-radius:9px;min-width:0;width:100%;border:0;background:var(--bg2);box-shadow:inset 0 0 0 1px var(--line)}
+.pfsel label.pfg{color:var(--pfg);font-weight:600}
+.pfprice{display:flex;justify-content:space-between;align-items:baseline;gap:6px 10px;border-top:1px solid var(--line);padding-top:12px;margin-top:auto;flex-wrap:wrap}
+.pfprice b{font-size:19px;font-variant-numeric:tabular-nums}.pfprice small{color:var(--pfg);font-weight:600;font-size:13px}
+.pfadd{width:100%;text-align:center;font-size:15px!important;padding:13px 18px!important}
+.pfdeal{all:unset;box-sizing:border-box;cursor:pointer;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.pfdeal:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.pfdeal .ph{position:relative;background:#fff}.pfdeal img{width:100%;aspect-ratio:1/1;object-fit:contain;display:block}
+.pfpct,.pfb{position:absolute;top:10px;left:10px;font-weight:700;font-size:12.5px;padding:5px 10px;border-radius:99px;font-variant-numeric:tabular-nums;z-index:2;pointer-events:none}
+.pfpct{background:var(--ink);color:var(--bg)}
+.pfdeal .bd{padding:12px 14px 14px;display:flex;flex-direction:column;gap:3px;flex:1}
+.pfdeal h4{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:19px;line-height:1.15;margin:0;color:var(--ink)}
+.pfdeal .sub{font-size:12.5px;color:var(--muted)}
+.pfdeal .pp{margin-top:auto;padding-top:8px;display:flex;align-items:baseline;gap:4px 8px;flex-wrap:wrap}.pfdeal .pp b{font-size:16px;color:var(--ink);font-variant-numeric:tabular-nums}.pfdeal .pp span{font-size:12px;color:var(--muted)}
+.pflegal{color:var(--muted);font-size:12.5px;line-height:1.5;margin:18px 0 0;max-width:80ch}
+.pfb{font-size:11px;letter-spacing:.04em}.pfb.g{background:var(--pfg);color:var(--pfg-ink)}.pfb.m{background:var(--ink);color:var(--bg)}
+.item.pfree .cinfo .t{color:var(--pfg);font-weight:600}.item.pfree strong{color:var(--pfg)}
+.item.pfree select{font:inherit;font-size:13px;margin-top:6px;padding:5px 8px;border-radius:8px;border:0;background:var(--chip);color:var(--ink);max-width:100%}
+@media (max-width:900px){.pfgrid>.pfset{flex-basis:calc((100% - 18px)/2)}.pfdeals>.pfdeal{flex-basis:calc((100% - 36px)/3)}}
+@media (max-width:700px){
+ .pfstage{border-radius:20px}
+ .pfhead{grid-template-columns:1fr;padding-block:26px 24px;gap:16px}
+ .pfo{width:40px;height:40px;font-size:24px;top:calc(50% - 30px)}.pfo-r{right:4px}.pfo-l{left:4px}
+ .pfrail::after{right:-20px;width:48px}
+ .pfside{border-left:0;border-top:1px solid rgba(232,207,163,.22);padding-left:0;padding-top:14px}.pfcount b{font-size:32px}
+ .pfgrid,.pfdeals{gap:12px;margin-left:-20px;margin-right:-20px;padding:2px 20px 10px;scroll-padding-left:20px}
+ .pfgrid>.pfset{flex-basis:84%}.pfdeals>.pfdeal{flex-basis:44%}
+ .pfbar2{margin-top:28px}
+ .pfbody{padding-block:36px 28px}
+}
+html.pfoffh #pfrib,html.pfoffh #fetes,html.pfoffh .pfb,body.pfoff #pfrib,body.pfoff #fetes,body.pfoff .pfb,body.pfoff .pfnav{display:none!important}
 /* tri par prix */
 .mrow{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .sortw{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
