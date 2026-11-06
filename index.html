@@ -9,7 +9,7 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Malohe – Parfums et soins Chogan</title><meta name="description" content="Malohe, vendeur indépendant Chogan : parfums Olfazeta, brumes, maquillage, soins Aurodhea et maison. Commande par carte ou virement.">
 <meta name="description" content="Malohe : parfums, brumes, maquillage, soins et parfums d’ambiance, sur commande.">
-<meta name="theme-color" content="#fbfaf8" media="(prefers-color-scheme: light)"><meta property="og:title" content="Malohe – L’élégance au quotidien"><meta property="og:description" content="Parfums, brumes, maquillage, soins et parfums d’ambiance. Conseils personnalisés et commande simple."><meta property="og:type" content="website"><meta property="og:url" content="https://malohe-collection.fr/"><meta property="og:image" content="https://malohe-collection.fr/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Malohe – L’élégance au quotidien : parfums, brumes, maquillage et soins"><meta property="og:site_name" content="Malohe"><meta name="twitter:image" content="https://malohe-collection.fr/og.jpg"><meta property="og:locale" content="fr_FR"><meta name="twitter:card" content="summary_large_image"><link rel="canonical" href="https://malohe-collection.fr/"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Store", "name": "Malohe", "slogan": "L’élégance au quotidien", "url": "https://malohe-collection.fr/", "email": "contact.malohe@gmail.com", "sameAs": ["https://www.instagram.com/malohe.collection"], "description": "Vendeur indépendant Chogan : parfums Olfazeta, brumes, maquillage, soins et parfums d’ambiance."}</script><meta name="apple-mobile-web-app-title" content="Malohe"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23F4EEE3%27/%3E%3Ctext x=%2732%27 y=%2746%27 font-size=%2742%27 text-anchor=%27middle%27 font-family=%27Georgia,serif%27 fill=%27%238A6445%27%3EM%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#fbfaf8" media="(prefers-color-scheme: light)"><meta property="og:title" content="Malohe – L’élégance au quotidien"><meta property="og:description" content="Parfums, brumes, maquillage, soins et parfums d’ambiance. Conseils personnalisés et commande simple."><meta property="og:type" content="website"><meta property="og:url" content="https://malohe-collection.fr/"><meta property="og:image" content="https://malohe-collection.fr/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Malohe – L’élégance au quotidien : parfums, brumes, maquillage et soins"><meta property="og:site_name" content="Malohe"><meta name="twitter:image" content="https://malohe-collection.fr/og.jpg"><meta property="og:locale" content="fr_FR"><meta name="twitter:card" content="summary_large_image"><link rel="canonical" href="https://malohe-collection.fr/"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Store", "name": "Malohe", "slogan": "L’élégance au quotidien", "url": "https://malohe-collection.fr/", "email": "contact.malohe@gmail.com", "sameAs": ["https://www.instagram.com/malohe.collection"], "description": "Vendeur indépendant Chogan : parfums Olfazeta, brumes, maquillage, soins et parfums d’ambiance."}</script><meta name="apple-mobile-web-app-title" content="Malohe"><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{color-scheme:light;--bg:#fbfaf8;--bg2:#f4f0ea;--surface:#fff;--ink:#1d1d1f;--muted:#6e6e73;--accent:#8a6445;--gold:#b98a55;--line:rgba(0,0,0,.08);--chip:#efeae3;--btn:#8a6445;--btn-ink:#fff;--dark:#161210;--dark-ink:#f5efe6;--glass:rgba(251,250,248,.72);--g1:#c9a06b;--g2:#7a5230;--ln:#7a5230;--brown:#8a6445;color-scheme:light}
@@ -673,6 +673,16 @@ function add(c,v){var cur=cart[v.r];if(cur)cur.q++;else cart[v.r]={r:v.r,t:c.t,l
  save();renderCart();toast('Ajouté à ma sélection')}window.__mal={add:add,cart:function(){return cart},D:D,openP:function(c){openP(c)},renderCart:function(){renderCart()}};
 function setTitle(h,t){t.split(/(\d+)/).forEach(function(p,i){if(!p)return;if(i%2){h.appendChild(el('span','dg',p))}else h.appendChild(document.createTextNode(p))})}
 function splitNum(t){var m=t.match(/^(\d{3})\s+(.+)$/);if(m)return{n:m[1],t:m[2]};m=t.match(/^Parfum n°(\d{3})$/);if(m)return{n:m[1],t:'Parfum'};return{n:'',t:t}}
+function dv2Foot(){var ft=document.querySelector('footer .wrap');if(!ft||ft.querySelector('.fpro'))return;var logo=ft.querySelector('svg.logo');var g=el('div','fpro');
+ var br=el('div','fbrand');if(logo)br.appendChild(logo);br.appendChild(el('p',null,'Parfums, brumes, maquillage et soins Chogan, choisis et conseillés près de Carvin. Livraison en France ou remise en main propre.'));g.appendChild(br);
+ function col(t,items){var c=el('div');c.appendChild(el('h4',null,t));var u=el('ul');items.forEach(function(it){var li=el('li');li.appendChild(it);u.appendChild(li)});c.appendChild(u);g.appendChild(c)}
+ function lk(t,h,ext){var a=el('a',null,t);a.href=h;if(ext){a.target='_blank';a.rel='noopener'}else if(h.charAt(0)==='#')a.setAttribute('data-go','');return a}
+ function th(t,k){var b=el('button',null,t);b.type='button';b.onclick=function(){var st=window.MAL&&window.MAL.st;if(!st)return;st.th=k;st.g='';st.cat='';st.q='';st.f='';st.lx=0;st.pr='';st.fv=0;st.n=36;window.MAL.renderAll();var c=document.getElementById('catalogue');if(c)c.scrollIntoView({behavior:'smooth'})};return b}
+ col('Boutique',[th('Parfums','parfums'),th('Brumes','brumes'),th('Maquillage','maquillage'),th('Soins','soins'),th('Maison','maison'),lk('Luxury','#luxury')]);
+ col('Aide',[lk('Comment commander','#commander'),lk('Questions fréquentes','#faq'),lk('Contact','#contact')]);
+ var cs=[];var tel=document.querySelector('#contact a[href^="tel:"]'),ml=document.querySelector('#contact a[href^="mailto:"]');if(tel)cs.push(lk(tel.textContent.trim(),tel.getAttribute('href')));if(ml)cs.push(lk(ml.textContent.trim(),ml.getAttribute('href')));cs.push(lk('Instagram','https://www.instagram.com/malohe.collection/',1));col('Me suivre',cs);
+ ft.insertBefore(g,ft.firstChild);ft.classList.add('fpro-on');
+ [].forEach.call(g.querySelectorAll('a[data-go]'),function(a){a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})})}
 function dv2Kind(c){if(c.v.some(function(v){return v.c}))return['teinte','teintes','la teinte','une teinte'];if(c.v.every(function(v){return /(^\d|Recharge|Unité|Boîte|Paquet|Lot|\d\s?(ml|g|l)\b)/i.test(v.l)}))return['format','formats','le format','un format'];if(c.th==='maquillage')return['modèle','modèles','le modèle','un modèle'];return['parfum','parfums','le parfum','un parfum']}
 function dv2Num(t){var x=String(t).match(/(?:^|n°)\s*(\d{3})\b/);return x?x[1]:null}
 function dv2Min(x){return Math.min.apply(null,x.v.filter(function(v){return !isOut(v)}).map(function(v){return v.p}).concat([1e9]))}
@@ -748,6 +758,7 @@ function dv2P(c){var m=document.getElementById('pm');if(!m)return;[].forEach.cal
  try{dv2Comp(c,m)}catch(e){}
  var note=m.querySelector('.pnote');if(note)note.style.display='none';
 }
+try{if(document.readyState!=='loading')setTimeout(dv2Foot,0);else document.addEventListener('DOMContentLoaded',dv2Foot)}catch(e){}
 function renderGrid(){var g=$('#grid');g.textContent='';var L=list();var bn=$('#banner');bn.textContent='';if(st.th==='parfums'){bn.appendChild(famRow());var ip=el('p','insp');var ia=el('a',null,'Parcourez notre liste d’inspirations');if(window.__inspU)ia.href=window.__inspU;else ia.hidden=true;var ial=el('span','ialt','Pour recevoir la liste complète des parfums, ');var icl=el('a',null,'contactez-moi');icl.href='#contact';icl.onclick=function(e){e.preventDefault();var n=document.querySelector('a[data-go][href$=contact]');if(n)n.click()};ial.appendChild(icl);ial.appendChild(document.createTextNode('.'));ip.appendChild(ial);ia.target='_blank';ia.rel='noopener';ip.appendChild(ia);var qz=el('button','qzbtn','✦ Trouver mon parfum');qz.type='button';qz.onclick=function(){if(window.__quiz)window.__quiz()};ip.appendChild(qz);bn.appendChild(ip)}var gb=D.gb[st.g];if(st.g!=='all'&&gb){var bb=el('div','banner');var bi=el('img');bi.src=D.imgs[gb.im];bi.alt='Produits : '+st.g;bb.appendChild(bi);var bt=el('div');bt.appendChild(el('h3',null,st.g));bt.appendChild(el('p',null,gb.d));bb.appendChild(bt);bn.appendChild(bb)}
  g.className='grid'+(st.noanim?'':' anim');L.slice(0,st.n).forEach(function(c,ci){var a=el('article','card');a.style.setProperty('--i',String(ci%12));function sw(v){if(v.im&&im&&D.imgs[v.im])im.src=D.imgs[v.im]}if(c.im){var im=el('img','im '+(c.im.indexOf('fl')===0?'flask':((c.im.indexOf('ch_')===0&&c.im.indexOf('LOVE')<0)||/^(mq|sk|ph)_/.test(c.im)||c.g==='Étuis de poche'?'bt':'ph')));if(ci<8||!window.__lzo){im.src=D.imgs[c.im]}else{im.dataset.src=D.imgs[c.im];window.__lzo.observe(im)}im.alt=c.t;im.decoding='async';var _n=splitNum(c.t);var stg=el('div','stg '+tintOf(c)+' k-'+(im.className.split(' ')[1]||'bt'));if(_n.n&&c.th==='parfums'){stg.classList.add('has-num');var bnm=el('span','bignum',_n.n);bnm.setAttribute('aria-hidden','true');stg.appendChild(bnm)}stg.appendChild(im);a.appendChild(stg)}var nt=splitNum(c.t);if(nt.n&&!(c.im&&c.th==='parfums'))a.appendChild(el('p','num','n° '+nt.n));var h3=el('h3');setTitle(h3,nt.t);a.appendChild(h3);a.appendChild(el('p','s',c.s));if(c.d)a.appendChild(el('p','d',c.d));
   if(c.n&&c.n.Famille){var fm2=el('p','fam2 '+tintOf(c));fm2.appendChild(el('span','fdot'));fm2.appendChild(document.createTextNode(c.n.Famille));a.appendChild(fm2)}if(c.n&&(c.n['Tête']||c.n['Cœur']||c.n['Fond'])){var dl=el('dl','notes');['Tête','Cœur','Fond'].forEach(function(k){if(!c.n[k])return;dl.appendChild(el('dt',null,k));var dd=el('dd',null,c.n[k]);dd.title=c.n[k];dl.appendChild(dd)});a.appendChild(dl)}
@@ -1453,7 +1464,7 @@ var _offi2=window.__offi;window.__offi=function(c){_offi2(c);var o=document.getE
  var w=document.createElement('div');w.id='oetui';var t=document.createElement('p');t.textContent='Cet étui accueille les recharges 15 ml de vos parfums Olfazeta : choisissez le format « 15 ml · recharge étui » sur la fiche du parfum.';w.appendChild(t);
  var bt=document.createElement('button');bt.type='button';bt.className='btn ghost';bt.textContent='Voir les parfums';bt.onclick=function(){var x=document.getElementById('pclose');if(x)x.click();setTimeout(function(){var st=window.MAL.st;st.th='parfums';st.g='all';st.cat='';st.q='';st.n=36;window.MAL.renderAll();var cat=document.getElementById('catalogue');if(cat)cat.scrollIntoView({behavior:'smooth'})},250)};w.appendChild(bt);box.insertBefore(w,box.firstChild)};
 /* --- lien recharges 15 ml ↔ étuis de poche (31/10/2026) --- */
-function goEtuis(){var st=window.MAL.st;st.th='parfums';st.g='Étuis de poche';st.cat='';st.q='';st.n=36;window.MAL.renderAll();var cat=document.getElementById('catalogue');if(cat)cat.scrollIntoView({behavior:'smooth'})}
+function goEtuis(){var st=window.MAL.st;st.th='parfums';st.g='Étuis de poche';st.cat='';st.q='';st.f='';st.lx=0;st.pr='';st.fv=0;st.n=36;try{closeP()}catch(_){}try{var qi=document.getElementById('q');if(qi)qi.value=''}catch(_){}window.MAL.renderAll();var cat=document.getElementById('catalogue');if(cat)cat.scrollIntoView({behavior:'smooth'})}
 function etuiBox(id,txt,close){var w=document.createElement('div');w.id=id;w.className='etuihint';w.hidden=true;var t=document.createElement('p');t.textContent=txt;w.appendChild(t);var b=document.createElement('button');b.type='button';b.className='lnk';b.textContent='Voir les étuis de poche →';b.onclick=function(){close();setTimeout(goEtuis,250)};w.appendChild(b);return w}
 (function(){var pv=document.getElementById('pvars');if(!pv)return;var h=etuiBox('p15','Format recharge : n’oubliez pas votre étui de poche pour l’emporter partout.',function(){var x=document.getElementById('pclose');if(x)x.click()});pv.parentNode.insertBefore(h,pv.nextSibling);
  pv.addEventListener('click',function(e){var bt=e.target.closest('.var');if(!bt)return;h.hidden=!/recharge étui/.test(bt.textContent)})})();
@@ -1709,5 +1720,44 @@ header::after{background:var(--accent)!important}
 .cupb{font:inherit;font-size:13px;min-height:36px;padding:0 14px;border-radius:99px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
 /* moins d'éléments flottants sur téléphone : seule la barre « Ma sélection » reste */
 @media (max-width:820px){#totop,#tobot,#askw{display:none!important}}
+
+/* ===== Finition « site pro » (6/11) ===== */
+/* 1 : chiffres réguliers */
+html{font-variant-numeric:lining-nums}
+.from b,#subtotal,#total,.pfdeal .pp b,#pm .vp,#pm .pv b,.cupt small,.pct small{font-variant-numeric:lining-nums tabular-nums;font-feature-settings:"lnum" 1,"tnum" 1}
+.bignum,.pbig{font-variant-numeric:oldstyle-nums;font-feature-settings:"onum" 1}
+/* 2 : bouton fin à bordure sur les cartes */
+.card .addsel{background:transparent!important;color:var(--ink)!important;border:1px solid rgba(31,23,18,.38)!important;font-weight:500}
+.card .addsel:disabled,.card .addsel[disabled]{color:var(--muted)!important;border-color:var(--line)!important}
+.card .addsel:not(:disabled):hover{background:var(--ink)!important;color:#fff!important}
+.cadd{background:transparent!important;color:var(--ink)!important;border:1px solid rgba(31,23,18,.38)!important;font-weight:500;letter-spacing:.01em;box-shadow:none}
+.cadd:hover{background:var(--ink)!important;color:#fff!important;border-color:var(--ink)!important;transform:none}
+.cadd.okd{background:var(--acc2)!important;border-color:var(--acc2)!important;color:#fff!important}
+/* 3 : photos cadrées pareil */
+.stg{align-items:center}
+.stg .im.bt,.card .stg .im.flask{height:200px;max-width:84%;padding:0!important;object-fit:contain;object-position:center bottom}
+.stg:not(.has-num):not(.k-ph){height:236px}
+.stg.has-num{height:258px;align-items:flex-end}
+/* 4 : titres et sous-titres sur 2 lignes, cartes alignées */
+.card{display:flex;flex-direction:column}
+.card h3{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card .s{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+@media (max-width:700px){
+ .stg .im.bt,.card .stg .im.flask{height:138px}
+ .stg:not(.has-num):not(.k-ph){height:170px}
+ .stg.has-num{height:190px}
+ .card .s{-webkit-line-clamp:2}
+}
+/* 6 : pied de page en colonnes */
+footer .fpro{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;text-align:left;padding:8px 0 28px;border-bottom:1px solid var(--line);margin-bottom:22px}
+footer .fpro h4{margin:0 0 12px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--ink)}
+footer .fpro ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+footer .fpro a,footer .fpro button{font:inherit;font-size:14px;color:var(--muted);text-decoration:none;background:none;border:0;padding:0;cursor:pointer;text-align:left}
+footer .fpro a:hover,footer .fpro button:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+footer .fbrand p{margin:10px 0 0;font-size:14px;line-height:1.55;color:var(--muted);max-width:30ch}
+footer .fbrand .logo{height:96px!important;width:auto;margin:0 0 0 -6px}
+footer .fpro-on .flinks{display:none}
+footer .fpro-on > div:not(.fpro){font-size:12.5px}
+@media (max-width:820px){footer .fpro{grid-template-columns:1fr 1fr;gap:26px 20px}footer .fbrand{grid-column:1/-1}}
 </style></body>
 </html>
