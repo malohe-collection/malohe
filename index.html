@@ -673,6 +673,7 @@ function add(c,v){var cur=cart[v.r];if(cur)cur.q++;else cart[v.r]={r:v.r,t:c.t,l
  save();renderCart();toast('Ajouté à ma sélection')}window.__mal={add:add,cart:function(){return cart},D:D,openP:function(c){openP(c)},renderCart:function(){renderCart()}};
 function setTitle(h,t){t.split(/(\d+)/).forEach(function(p,i){if(!p)return;if(i%2){h.appendChild(el('span','dg',p))}else h.appendChild(document.createTextNode(p))})}
 function splitNum(t){var m=t.match(/^(\d{3})\s+(.+)$/);if(m)return{n:m[1],t:m[2]};m=t.match(/^Parfum n°(\d{3})$/);if(m)return{n:m[1],t:'Parfum'};return{n:'',t:t}}
+function dv2Kind(c){if(c.v.some(function(v){return v.c}))return['teinte','teintes','la teinte','une teinte'];if(c.v.every(function(v){return /(^\d|Recharge|Unité|Boîte|Paquet|Lot|\d\s?(ml|g|l)\b)/i.test(v.l)}))return['format','formats','le format','un format'];if(c.th==='maquillage')return['modèle','modèles','le modèle','un modèle'];return['parfum','parfums','le parfum','un parfum']}
 function dv2Num(t){var x=String(t).match(/(?:^|n°)\s*(\d{3})\b/);return x?x[1]:null}
 function dv2Min(x){return Math.min.apply(null,x.v.filter(function(v){return !isOut(v)}).map(function(v){return v.p}).concat([1e9]))}
 function dv2Comp(c,m){var pb=m.querySelector('.pbody');if(!pb)return;var L=[],n=dv2Num(c.t),seen={};
@@ -701,7 +702,7 @@ function famRow(){var w=el('div','famrow');w.setAttribute('role','group');w.setA
   b.onclick=function(){st.f=(st.f===f[0]?'':f[0]);st.n=36;if(window.MAL&&window.MAL.renderAll)window.MAL.renderAll();else renderGrid()};w.appendChild(b)});return w}
 function shortL(l){return l.replace(' · recharge étui','').replace(' · épuisé','')}
 function isOut(v){return / · épuisé/.test(v.l)}
-function cfoot(c){var f=el('div','cfoot');var var1=c.v.length===1;var shades=c.v.some(function(v){return v.im||v.c});
+function cfoot(c){var f=el('div','cfoot');var var1=c.v.length===1;var shades=c.v.some(function(v){return v.im||v.c})&&!c.v.every(function(v){return /(^\d|Recharge|Unité|Boîte|Paquet|Lot|\d\s?(ml|g|l)\b)/i.test(v.l)});
  var row=el('div','crow');var pr=el('p','from');var pb=el('b');pr.appendChild(pb);
  var b=el('button','cadd');b.type='button';var sel=null;
  function ok(){b.textContent='Ajouté ✓';b.classList.add('okd');clearTimeout(b._t);b._t=setTimeout(function(){b.textContent='Ajouter';b.classList.remove('okd')},1600)}
@@ -713,7 +714,7 @@ function cfoot(c){var f=el('div','cfoot');var var1=c.v.length===1;var shades=c.v
   var d0=c.v.findIndex(function(v){return !isOut(v)});if(d0<0)d0=0;pick(c.v[d0],bs[d0]);f.appendChild(sz);
   b.textContent='Ajouter';b.onclick=function(e){e.stopPropagation();if(!sel||isOut(sel))return;add(c,sel);ok()}}
  else if(var1){f.appendChild(el('p','fmts',c.v[0].l));pb.textContent=eur(c.v[0].p);b.textContent='Ajouter';b.setAttribute('aria-label','Ajouter '+c.t+' à ma sélection');b.onclick=function(e){e.stopPropagation();add(c,c.v[0]);ok()}}
- else{var mn=Math.min.apply(null,c.v.map(function(v){return v.p}));f.appendChild(el('p','fmts',c.v.length+' teintes'));if(c.v.some(function(v){return v.p!==mn}))pr.insertBefore(el('span','dl','dès '),pb);pb.textContent=eur(mn);b.textContent='Choisir la teinte';b.setAttribute('aria-label','Choisir la teinte : '+c.t);b.onclick=function(e){e.stopPropagation();openP(c)}}
+ else{var mn=Math.min.apply(null,c.v.map(function(v){return v.p}));var K=dv2Kind(c);f.appendChild(el('p','fmts',c.v.length+' '+K[1]));if(c.v.some(function(v){return v.p!==mn}))pr.insertBefore(el('span','dl','dès '),pb);pb.textContent=eur(mn);b.textContent='Choisir '+K[2];b.setAttribute('aria-label','Choisir '+K[2]+' : '+c.t);b.onclick=function(e){e.stopPropagation();openP(c)}}
  row.appendChild(pr);row.appendChild(b);f.appendChild(row);return f}
 function dv2P(c){var m=document.getElementById('pm');if(!m)return;[].forEach.call(m.querySelectorAll('.dv2x'),function(x){x.remove()});
  var tint=tintOf(c);m.className=m.className.replace(/\bt-[a-z]+\b/g,'').trim();m.classList.add('dv2',tint);
@@ -738,7 +739,7 @@ function dv2P(c){var m=document.getElementById('pm');if(!m)return;[].forEach.cal
   var bar=el('div','pbar dv2x'),bt=el('div','pbt'),bb=el('button','pbb');bb.type='button';bar.appendChild(bt);bar.appendChild(bb);m.appendChild(bar);
   bb.onclick=function(){var v=cur();if(v)ab.click();else{wrap.scrollIntoView({behavior:'smooth',block:'center'})}};
   if(window.IntersectionObserver){var io=new IntersectionObserver(function(es){bar.classList.toggle('pbar-off',es[0].isIntersecting)},{root:null,threshold:.2});io.observe(row)}
-  function lab(){var v=cur();if(v&&!ab.classList.contains('okd'))ab.textContent='Ajouter à ma sélection · '+eur(v.p*q);bt.textContent='';if(v){bt.appendChild(el('b',null,v.l.replace(' · recharge étui','').replace(' · épuisé','')));bt.appendChild(el('span',null,(q>1?q+' × ':'')+eur(v.p)));bb.textContent='Ajouter · '+eur(v.p*q)}else{bt.appendChild(el('b',null,c.v.length>1?(wrap.classList.contains('sh')?'Choisissez une teinte':'Choisissez un format'):''));bb.textContent=wrap.classList.contains('sh')?'Voir les teintes':'Voir les formats'}}
+  function lab(){var v=cur();if(v&&!ab.classList.contains('okd'))ab.textContent='Ajouter à ma sélection · '+eur(v.p*q);bt.textContent='';if(v){bt.appendChild(el('b',null,v.l.replace(' · recharge étui','').replace(' · épuisé','')));bt.appendChild(el('span',null,(q>1?q+' × ':'')+eur(v.p)));bb.textContent='Ajouter · '+eur(v.p*q)}else{bt.appendChild(el('b',null,c.v.length>1?(wrap.classList.contains('sh')?'Choisissez '+dv2Kind(c)[3]:'Choisissez un format'):''));bb.textContent=wrap.classList.contains('sh')?'Voir les '+dv2Kind(c)[1]:'Voir les formats'}}
   ab.addEventListener('click',function(){setTimeout(lab,40);setTimeout(lab,2300)});
   mi.onclick=function(){q=Math.max(1,q-1);qv.textContent=q;lab()};pl.onclick=function(){q=Math.min(9,q+1);qv.textContent=q;lab()};
   wrap.addEventListener('click',function(e){if(e.target.closest('.var'))setTimeout(lab,0)});
