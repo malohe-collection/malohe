@@ -1915,6 +1915,12 @@ html.noel .hnoel{padding:0!important;display:block;position:relative;overflow:hi
 /* iPhone : Safari peint sous sa barre flottante la couleur de fond de la page (html) : sombre tant que l'accueil de Noël est à l'écran (7/11, 9 h 05) */
 html.noel.hn-top,html.noel.hn-top body{background-color:#110c09}
 html.noel.hn-top main,html.noel.hn-top footer{background-color:#fbfaf8}
+/* Safari iOS 26 colore aussi le bas de l'écran avec le fond des éléments « fixes » (panier, filtres, fiche…) même fermés :
+   on les retire tant que l'accueil de Noël est en haut et qu'ils sont fermés (7/11, 9 h 15) */
+html.hn-top #cart:not(.open),html.hn-top #fdr:not(.open),html.hn-top #pm:not(.open),html.hn-top #lb:not(.open),
+html.hn-top #veil:not(.open),html.hn-top #pveil:not(.open),html.hn-top #fveil:not(.open),html.hn-top .mbar:not(.on){display:none!important}
+/* en-tête blanc opaque (et non translucide, qui virait au gris sur le fond sombre) */
+html.hn-top header{background:#fbfaf8!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 /* passage vers la section suivante : coupure nette (choix de Hasch, 7/11 9 h ; fondu et arrondi essayés puis écartés) */
 html.noel #fetes.pf{padding-top:44px!important}
 .hn-vis{position:relative;height:470px}
