@@ -426,7 +426,7 @@ var T=k.split(/[^a-z0-9]+/);for(var i=0;i<T.length;i++){var t=T[i];if(t.length<3
 <p class="hn-eb">Noël · jusqu’au 15 décembre</p>
 <h1 id="hnoel-t">Noël,<br><em>en toute élégance.</em></h1>
 <p class="hn-lede">Le 3<sup>e</sup> produit offert sur une sélection de duos : parfums, soins visage et bougies.</p>
-<div class="hn-cta"><a class="hn-b1" href="#fetes" data-go>Voir les offres de Noël</a><a class="hn-b2" href="#catalogue" data-go>Voir le catalogue</a></div>
+<div class="hn-cta"><a class="hn-b1" href="#fetes" data-go>Voir les offres<span class="hn-x">&nbsp;de Noël</span></a><a class="hn-b2" href="#catalogue" data-go><span class="hn-x">Voir le catalogue</span><span class="hn-y">Catalogue</span></a></div>
 <p class="hn-cd"><span>Fin des offres dans</span> <b id="hncd-j">–</b><i>j</i> <b id="hncd-h">–</b><i>h</i> <b id="hncd-m">–</b><i>min</i></p>
 </div>
 <div class="hn-vis"><span class="hn-glow" aria-hidden="true"></span>
@@ -1880,8 +1880,9 @@ section.contact,#contact{padding-bottom:56px!important}
 .hnoel{display:none}
 html.noel .hero{display:none!important}
 html.noel #fetes .pfstage{display:none!important}
+html.noel #pfrib{display:none!important} /* bandeau rouge : doublon de l'accueil de Noël (7/11) */
 html.noel #fetes.pf{padding-top:56px!important}
-html.noel .hnoel{display:block;position:relative;overflow:hidden;background:radial-gradient(70% 90% at 72% 50%,#3a2a1d 0%,#1a130e 55%,#110c09 100%);color:#f5efe6}
+html.noel .hnoel{padding:0!important;display:block;position:relative;overflow:hidden;background:radial-gradient(70% 90% at 72% 50%,#3a2a1d 0%,#1a130e 55%,#110c09 100%);color:#f5efe6}
 .hn-in{max-width:1088px;margin:0 auto;padding:56px 40px 60px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,380px);gap:32px;align-items:center;position:relative;z-index:1}
 .hn-eb{margin:0;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#d9b98a;font-weight:500}
 .hnoel h1{margin:20px 0 0;font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:clamp(52px,5.8vw,74px);line-height:1;letter-spacing:-.01em;color:#f5efe6;background:none;-webkit-text-fill-color:currentColor}
@@ -1892,6 +1893,10 @@ html.noel .hnoel{display:block;position:relative;overflow:hidden;background:radi
 .hn-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
 .hn-cta a{text-decoration:none;border-radius:999px;font-size:16px;font-weight:500;padding:14px 26px;transition:transform .2s ease,background .2s ease}
 .hn-b1{background:#d9b98a;color:#1a120b!important;font-weight:600!important}
+/* deux boutons strictement identiques en taille (7/11, 8 h 20) */
+.hn-cta a{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;min-width:232px;height:52px;padding:0 24px!important;border:1px solid transparent;line-height:1;white-space:nowrap}
+.hn-cta .hn-b1{border-color:#d9b98a}
+.hn-cta .hn-b2{border-color:rgba(245,239,230,.45)}
 .hn-b1:hover{background:#e6c99c}
 .hn-b2{color:#f5efe6!important;border:1px solid rgba(245,239,230,.35)}
 .hn-b2:hover{background:rgba(245,239,230,.08)}
@@ -1910,17 +1915,22 @@ html.noel .hnoel{display:block;position:relative;overflow:hidden;background:radi
 .d4{left:95%;top:76%;width:3px;height:3px;animation-delay:2s}.d5{left:7%;top:16%;width:3px;height:3px;animation-delay:2.8s}.d6{left:37%;top:8%;width:3px;height:3px;animation-delay:1.6s}
 @keyframes hntw{0%,100%{opacity:.25}50%{opacity:.9}}
 @media (max-width:700px){
- .hn-in{grid-template-columns:1fr;gap:8px;padding:34px 22px 28px}
- .hn-eb{font-size:11px;letter-spacing:.22em}
- .hnoel h1{margin-top:14px;font-size:52px}
- .hn-lede{margin-top:16px;font-size:15.5px}
- .hn-cta{margin-top:20px;gap:10px;flex-direction:column}
- .hn-cta a{font-size:15.5px;padding:14px 16px;text-align:center}
- .hn-cd{margin-top:18px;font-size:13px}.hn-cd b{font-size:24px}
- .hn-vis{height:330px;margin-top:6px}
- .hn-back{left:4%;top:44px;width:48%}
- .hn-front{right:4%;top:8px;width:60%}
+ /* téléphone : tout l'accueil de Noël tient dans un écran (7/11, 8 h 15) */
+ .hn-in{grid-template-columns:1fr;gap:0;padding:28px 20px 20px}
+ .hn-eb{font-size:10.5px;letter-spacing:.2em}
+ .hnoel h1{margin-top:10px;font-size:40px;line-height:1.02}
+ .hnoel h1 em{white-space:nowrap}
+ .hn-lede{margin-top:10px;font-size:14.5px;line-height:1.45}
+ .hn-cta{margin-top:16px;gap:8px;flex-wrap:nowrap}
+ .hn-cta a{font-size:15px;min-width:0;height:48px;padding:0 10px!important;text-align:center}
+ .hn-b1,.hn-b2{flex:1 1 0}
+ .hn-cd{margin-top:12px;font-size:12.5px}.hn-cd b{font-size:22px}
+ .hn-vis{height:min(220px,30svh);margin-top:8px}
+ .hn-back{left:auto;right:42%;top:22px;width:auto;height:84%}
+ .hn-front{right:12%;top:0;width:auto;height:100%}
 }
+.hn-y{display:none}
+@media (max-width:700px){.hn-x{display:none}.hn-y{display:inline}}
 @media (prefers-reduced-motion:reduce){.hn-dot{animation:none;opacity:.6}.hn-cta a{transition:none}}
 
 /* brillance (7/11, 8 h) : poussière dorée, reflet sur le titre, halo (étoiles retirées à la demande de Hasch) */
