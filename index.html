@@ -532,12 +532,8 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 <section class="exc" id="excellence"><div class="wrap">
 <div class="eyebrow rv">Parfums</div>
 <h2 class="rv">L’excellence du parfum, autrement.</h2>
-<p class="sub rv">Les parfums Olfazeta s’inspirent des grandes signatures olfactives de la parfumerie, pour proposer des fragrances raffinées à un prix accessible.</p>
-<div class="xblocks">
-<div class="xblk rv"><h3>Des fragrances inspirées de grandes marques</h3><p>Des parfums pensés pour rappeler l’univers des grandes maisons de parfumerie.</p></div>
-<div class="xblk rv"><h3>Une concentration de 30&nbsp;%</h3><p>Les parfums de cette gamme sont concentrés à 30 % d’essence de parfum, pour une intensité et une tenue pensées pour accompagner la journée.</p></div>
-<div class="xblk rv"><h3>Le luxe, sans le superflu</h3><p>En privilégiant l’essentiel plutôt que les coûts de marketing des grandes marques, la marque rend l’univers du parfum plus accessible.</p></div>
-</div>
+<p class="sub rv">Des fragrances inspirées des grandes signatures de la parfumerie, à un prix accessible.</p>
+<div class="xblocks xb2"><div class="xblk rv"><span class="xic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c.6 4.9 3.1 7.4 8 8-4.9.6-7.4 3.1-8 8-.6-4.9-3.1-7.4-8-8 4.9-.6 7.4-3.1 8-8Z"/></svg></span><div><h3>Inspirés des grandes maisons</h3><p>Des fragrances qui rappellent l’univers des grandes marques de parfumerie.</p></div></div><div class="xblk rv"><span class="xic xnum">30&nbsp;%</span><div><h3>d’essence de parfum</h3><p>Une concentration élevée, pour une belle intensité et une tenue pensée pour la journée.</p></div></div><div class="xblk rv"><span class="xic"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M6.5 4h11l4 5.5L12 20.5 2.5 9.5 6.5 4Z"/><path d="M2.5 9.5h19M9 4l3 16.5M15 4l-3 16.5"/></svg></span><div><h3>Le luxe, sans le superflu</h3><p>L’essentiel plutôt que les coûts de marketing&nbsp;: un prix plus juste.</p></div></div></div>
 <p class="xinsp rv"><a data-insp target="_blank" rel="noopener">Parcourez notre liste d’inspirations</a></p><p class="xinsp-alt rv">Pour recevoir la liste complète des parfums, <a href="#contact" data-go>contactez-moi</a>.</p>
 <p class="xsign rv">MALOHE — L’élégance au quotidien.</p>
 </div></section>
@@ -1988,5 +1984,39 @@ html.noel #fetes.pf{padding-top:44px!important}
 /* 7/11 13 h 50 : affiche « L’éclat de l’or » refaite avec des textes plus grands DANS l’image (data/img_ajouts/noel_affiche*.webp, à partir de lux4_l.webp) */
 @media (prefers-reduced-motion:reduce){.hn-st{animation:none;opacity:.8;transform:scale(.7)}.hnoel h1 em{animation:none;background:none;color:#d9b98a;-webkit-text-fill-color:#d9b98a}.hn-glow{animation:none}}
 
-</style><script>(function(){if(!document.documentElement.classList.contains('noel'))return;var E=new Date('2026-12-15T23:59:00+01:00').getTime();function z(n){return n<10?'0'+n:''+n}function t(){var d=E-Date.now();if(d<=0){document.documentElement.classList.remove('noel');return}var m=Math.floor(d/60000),j=Math.floor(m/1440),h=Math.floor(m%1440/60);m=m%60;var a=document.getElementById('hncd-j'),b=document.getElementById('hncd-h'),c=document.getElementById('hncd-m');if(a){a.textContent=j;b.textContent=z(h);c.textContent=z(m)}}t();setInterval(t,30000);var R=document.documentElement,S=document.querySelector('.hnoel');function u(){if(!S)return;var on=R.classList.contains('noel')&&S.getBoundingClientRect().bottom>window.innerHeight*0.5;R.classList.toggle('hn-top',on);var m=document.querySelector('meta[name=theme-color]');}u();addEventListener('scroll',u,{passive:true});addEventListener('resize',u)})();</script></body>
+</style><script>(function(){if(!document.documentElement.classList.contains('noel'))return;var E=new Date('2026-12-15T23:59:00+01:00').getTime();function z(n){return n<10?'0'+n:''+n}function t(){var d=E-Date.now();if(d<=0){document.documentElement.classList.remove('noel');return}var m=Math.floor(d/60000),j=Math.floor(m/1440),h=Math.floor(m%1440/60);m=m%60;var a=document.getElementById('hncd-j'),b=document.getElementById('hncd-h'),c=document.getElementById('hncd-m');if(a){a.textContent=j;b.textContent=z(h);c.textContent=z(m)}}t();setInterval(t,30000);var R=document.documentElement,S=document.querySelector('.hnoel');function u(){if(!S)return;var on=R.classList.contains('noel')&&S.getBoundingClientRect().bottom>window.innerHeight*0.5;R.classList.toggle('hn-top',on);var m=document.querySelector('meta[name=theme-color]');}u();addEventListener('scroll',u,{passive:true});addEventListener('resize',u)})();</script><style>
+/* ===== retouches du 7/11 (après-midi) ===== */
+/* 2) « L'excellence du parfum » : 3 points courts */
+#excellence .xb2{gap:16px;margin-top:36px}
+#excellence .xb2 .xblk{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;padding:28px 24px}
+#excellence .xb2 .xblk h3{font-family:Jost,system-ui,sans-serif;font-weight:600;font-size:18px;letter-spacing:0;line-height:1.3;color:var(--ink,#1c1714);margin:0 0 6px}
+#excellence .xb2 .xblk p{font-size:15px;line-height:1.5;margin:0}
+#excellence .xic{flex:none;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--chip,#efeae3);color:var(--accent)}
+#excellence .xic svg{width:22px;height:22px;fill:currentColor}
+#excellence .xic svg[fill="none"]{fill:none}
+#excellence .xnum{font-family:Jost,system-ui,sans-serif;font-weight:600;font-size:15px;letter-spacing:-.01em;font-variant-numeric:lining-nums;white-space:nowrap}
+@media (min-width:701px){#excellence .xb2{grid-template-columns:repeat(3,1fr)!important}}
+@media (max-width:700px){
+ #excellence .sub{font-size:15.5px}
+ #excellence .xb2{gap:0;margin-top:26px;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:4px 18px}
+ #excellence .xb2 .xblk{flex-direction:row;align-items:flex-start;text-align:left;gap:14px;background:none;border:0;border-radius:0;padding:16px 0}
+ #excellence .xb2 .xblk+.xblk{border-top:1px solid var(--line)}
+ #excellence .xic{width:44px;height:44px}
+ #excellence .xic svg{width:19px;height:19px}
+ #excellence .xnum{font-size:13.5px}
+ #excellence .xb2 .xblk h3{font-size:16.5px;margin:1px 0 3px}
+ #excellence .xb2 .xblk p{font-size:14.5px;line-height:1.45}
+ #excellence .xinsp{margin-top:26px}
+ #excellence .xsign{margin-top:22px;font-size:22px}
+}
+/* 1) accueil de Noël sur téléphone : affiche centrée entre le compte à rebours et le bas de la partie visible
+   de l'écran. --hvav (px) = place visible sous le compte à rebours, mesurée par le script JS1 ; sans script,
+   estimation CSS (la zone sous la barre de Safari n'est pas comptée). */
+@media (max-width:700px){
+ html.noel .hnoel{--hid:calc(100lvh - 100svh + env(safe-area-inset-bottom,0px) + 64px)}
+ html.noel .hn-vis{margin-top:0;--av:var(--hvav,calc(100% - var(--hid)))}
+ html.noel .hn-front{top:calc(var(--av) / 2);transform:translate(-50%,-50%);height:max(180px,min(calc(var(--av) - 56px),410px,calc((100vw - 48px) * 1.25)))}
+ html.noel .hn-glow{top:calc(var(--av) / 2 - 50%)}
+}
+</style><script>(function(){var R=document.documentElement;if(!R.classList.contains('noel'))return;var V=document.querySelector('.hn-vis');if(!V)return;var w=-1;function m(){if(innerWidth>700){V.style.removeProperty('--hvav');return}if(innerWidth===w&&scrollY>4)return;w=innerWidth;var h=(window.visualViewport?visualViewport.height:innerHeight)+(scrollY||0)-V.getBoundingClientRect().top-scrollY;h=Math.max(200,Math.round(h-8));V.style.setProperty('--hvav',h+'px')}m();addEventListener('load',m);addEventListener('orientationchange',function(){w=-1;setTimeout(m,300)});addEventListener('resize',function(){if(innerWidth!==w)m()})})();</script></body>
 </html>
