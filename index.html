@@ -1944,7 +1944,7 @@ html.noel #fetes.pf{padding-top:44px!important}
  .hn-cd{margin-top:14px;font-size:13px}.hn-cd b{font-size:26px}.hn-cd span{font-size:14px;margin-right:6px}
  .hn-dot{animation-duration:2.2s}
  /* l'accueil occupe tout l'écran du téléphone (sous l'en-tête de 56 px) ; la section suivante n'apparaît qu'au défilement (7/11, 8 h 35) */
- html.noel .hnoel{min-height:calc(100vh - 56px);min-height:calc(100lvh - 56px)}
+ html.noel .hnoel{min-height:calc(100vh - 56px + env(safe-area-inset-bottom,0px) + 64px);min-height:calc(100lvh - 56px + env(safe-area-inset-bottom,0px) + 64px)} /* + zone sous la barre de Safari (iPhone) : la section crème suivante n'apparaît plus en bas du premier écran */
  .hn-in{min-height:inherit;display:flex;flex-direction:column;align-items:stretch}
  .hn-txt{flex:none}
  .hn-vis{flex:1 1 auto;height:auto;min-height:190px;margin-top:14px}
