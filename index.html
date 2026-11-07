@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="fr">
 <head><script>try{history.scrollRestoration='manual'}catch(e){}</script>
-<meta charset="utf-8"><script>try{if(Date.now()<new Date('2026-12-15T23:59:00+01:00').getTime())document.documentElement.classList.add('noel')}catch(e){}</script><script>function __N0(){return (window.innerWidth||1024)<700?12:24}</script><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://data.geopf.fr https://geo.api.gouv.fr https://cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"><meta name="referrer" content="same-origin"><script>if(window.top!==window.self&&location.hostname==="malohe-collection.fr"){document.documentElement.style.visibility="hidden";try{window.top.location.replace(location.href)}catch(e){}}</script>
+<meta charset="utf-8"><script>try{if(Date.now()<new Date('2026-12-15T23:59:00+01:00').getTime())document.documentElement.classList.add('noel','hn-top')}catch(e){}</script><script>function __N0(){return (window.innerWidth||1024)<700?12:24}</script><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://data.geopf.fr https://geo.api.gouv.fr https://cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"><meta name="referrer" content="same-origin"><script>if(window.top!==window.self&&location.hostname==="malohe-collection.fr"){document.documentElement.style.visibility="hidden";try{window.top.location.replace(location.href)}catch(e){}}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>Malohe – Parfums et soins Chogan</title><meta name="description" content="Malohe : parfums, brumes, maquillage, soins et parfums d’ambiance, sur commande.">
@@ -1908,6 +1908,9 @@ html.noel .hnoel{padding:0!important;display:block;position:relative;overflow:hi
 .hn-cd i{font-style:normal;margin-right:10px;color:#cbbfae}
 .hn-cd i:last-child{margin-right:0}
 /* fondu progressif vers la section claire suivante + fond sombre jusque sous la barre du navigateur (7/11, 8 h 45) */
+/* iPhone : Safari peint sous sa barre flottante la couleur de fond de la page (html) : sombre tant que l'accueil de Noël est à l'écran (7/11, 9 h 05) */
+html.noel.hn-top,html.noel.hn-top body{background-color:#110c09}
+html.noel.hn-top main,html.noel.hn-top footer{background-color:#fbfaf8}
 /* passage vers la section suivante : coupure nette (choix de Hasch, 7/11 9 h ; fondu et arrondi essayés puis écartés) */
 html.noel #fetes.pf{padding-top:44px!important}
 .hn-vis{position:relative;height:470px}
@@ -1961,5 +1964,5 @@ html.noel #fetes.pf{padding-top:44px!important}
 @media (max-width:700px){.d16,.d18{display:none}}
 @media (prefers-reduced-motion:reduce){.hn-st{animation:none;opacity:.8;transform:scale(.7)}.hnoel h1 em{animation:none;background:none;color:#d9b98a;-webkit-text-fill-color:#d9b98a}.hn-glow{animation:none}}
 
-</style><script>(function(){if(!document.documentElement.classList.contains('noel'))return;var E=new Date('2026-12-15T23:59:00+01:00').getTime();function z(n){return n<10?'0'+n:''+n}function t(){var d=E-Date.now();if(d<=0){document.documentElement.classList.remove('noel');return}var m=Math.floor(d/60000),j=Math.floor(m/1440),h=Math.floor(m%1440/60);m=m%60;var a=document.getElementById('hncd-j'),b=document.getElementById('hncd-h'),c=document.getElementById('hncd-m');if(a){a.textContent=j;b.textContent=z(h);c.textContent=z(m)}}t();setInterval(t,30000)})();</script></body>
+</style><script>(function(){if(!document.documentElement.classList.contains('noel'))return;var E=new Date('2026-12-15T23:59:00+01:00').getTime();function z(n){return n<10?'0'+n:''+n}function t(){var d=E-Date.now();if(d<=0){document.documentElement.classList.remove('noel');return}var m=Math.floor(d/60000),j=Math.floor(m/1440),h=Math.floor(m%1440/60);m=m%60;var a=document.getElementById('hncd-j'),b=document.getElementById('hncd-h'),c=document.getElementById('hncd-m');if(a){a.textContent=j;b.textContent=z(h);c.textContent=z(m)}}t();setInterval(t,30000);var R=document.documentElement,S=document.querySelector('.hnoel');function u(){if(!S)return;var on=R.classList.contains('noel')&&S.getBoundingClientRect().bottom>window.innerHeight*0.5;R.classList.toggle('hn-top',on);var m=document.querySelector('meta[name=theme-color]');}u();addEventListener('scroll',u,{passive:true});addEventListener('resize',u)})();</script></body>
 </html>
