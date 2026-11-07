@@ -1925,9 +1925,13 @@ html.noel .hnoel{padding:0!important;display:block;position:relative;overflow:hi
  .hn-cta a{font-size:15px;min-width:0;height:48px;padding:0 10px!important;text-align:center}
  .hn-b1,.hn-b2{flex:1 1 0}
  .hn-cd{margin-top:12px;font-size:12.5px}.hn-cd b{font-size:22px}
- .hn-vis{height:min(220px,30svh);margin-top:8px}
- .hn-back{left:auto;right:42%;top:22px;width:auto;height:84%}
- .hn-front{right:12%;top:0;width:auto;height:100%}
+ /* l'accueil occupe tout l'écran du téléphone (sous l'en-tête de 56 px) ; la section suivante n'apparaît qu'au défilement (7/11, 8 h 35) */
+ html.noel .hnoel{min-height:calc(100vh - 56px);min-height:calc(100lvh - 56px)}
+ .hn-in{min-height:inherit;display:flex;flex-direction:column;align-items:stretch}
+ .hn-txt{flex:none}
+ .hn-vis{flex:1 1 auto;height:auto;min-height:190px;margin-top:14px}
+ .hn-front{right:12%;top:0;width:auto;height:min(calc(100% - 16px),max(180px,calc(100svh - 400px)),380px)}
+ .hn-back{left:1%;right:auto;top:22px;width:auto;height:min(calc(100% - 40px),max(150px,calc(100svh - 440px)),320px)}
 }
 .hn-y{display:none}
 @media (max-width:700px){.hn-x{display:none}.hn-y{display:inline}}
