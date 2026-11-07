@@ -425,9 +425,9 @@ var T=k.split(/[^a-z0-9]+/);for(var i=0;i<T.length;i++){var t=T[i];if(t.length<3
 <div class="hn-txt">
 <p class="hn-eb">Noël · jusqu’au 15 décembre</p>
 <h1 id="hnoel-t">Noël,<br><em>en toute élégance.</em></h1>
-<p class="hn-lede">Le 3<sup>e</sup> produit offert sur une sélection de duos : parfums, soins visage et bougies.</p>
+<p class="hn-lede">Le 3<sup>e</sup> produit offert sur une sélection de duos.</p>
 <div class="hn-cta"><a class="hn-b1" href="#fetes" data-go>Voir les offres<span class="hn-x">&nbsp;de Noël</span></a><a class="hn-b2" href="#catalogue" data-go><span class="hn-x">Voir le catalogue</span><span class="hn-y">Catalogue</span></a></div>
-<p class="hn-cd"><span>Fin des offres dans</span> <b id="hncd-j">–</b><i>j</i> <b id="hncd-h">–</b><i>h</i> <b id="hncd-m">–</b><i>min</i></p>
+<p class="hn-cd"><span>Plus que</span> <b id="hncd-j">–</b><i>j</i> <b id="hncd-h">–</b><i>h</i> <b id="hncd-m">–</b><i>min</i></p>
 </div>
 <div class="hn-vis"><span class="hn-glow" aria-hidden="true"></span>
 <img class="hn-back" src="img/lux6.webp" width="640" height="800" alt="" decoding="async">
@@ -1902,14 +1902,14 @@ html.noel .hnoel{padding:0!important;display:block;position:relative;overflow:hi
 .hn-b2:hover{background:rgba(245,239,230,.08)}
 .hn-cta a:active{transform:scale(.97)}
 .hn-cta a:focus-visible{outline:2px solid #d9b98a;outline-offset:3px}
-.hn-cd{margin:24px 0 0;display:inline-flex;align-items:baseline;gap:4px;flex-wrap:wrap;padding:11px 18px;border:1px solid rgba(217,185,138,.45);border-radius:14px;background:rgba(217,185,138,.08);color:#cbbfae;font-size:13px}
-.hn-cd span{margin-right:10px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#d9b98a;font-weight:500}
+.hn-cd{margin:22px 0 0;display:flex;align-items:baseline;gap:4px;flex-wrap:wrap;color:#cbbfae;font-size:14px}
+.hn-cd span{margin-right:8px;font-size:15px;color:#d9b98a;font-weight:500}
 .hn-cd b{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:28px;color:#fff6e6;font-variant-numeric:lining-nums tabular-nums;line-height:1}
 .hn-cd i{font-style:normal;margin-right:10px;color:#cbbfae}
 .hn-cd i:last-child{margin-right:0}
 /* fondu progressif vers la section claire suivante + fond sombre jusque sous la barre du navigateur (7/11, 8 h 45) */
-html.noel .hnoel::after{content:"";display:block;height:180px;background:linear-gradient(to bottom,rgba(251,250,248,0) 0%,rgba(251,250,248,.04) 35%,rgba(251,250,248,.55) 70%,#fbfaf8 100%);pointer-events:none}
-html.noel #fetes.pf{padding-top:8px!important}
+/* passage vers la section suivante : coupure nette (choix de Hasch, 7/11 9 h ; fondu et arrondi essayés puis écartés) */
+html.noel #fetes.pf{padding-top:44px!important}
 .hn-vis{position:relative;height:470px}
 .hn-vis img{position:absolute;object-fit:cover;display:block}
 .hn-back{left:0;top:80px;width:62%;height:auto;aspect-ratio:4/5;border-radius:22px;transform:rotate(-8deg);opacity:.85;box-shadow:0 30px 60px -20px rgba(0,0,0,.7)}
@@ -1928,14 +1928,15 @@ html.noel #fetes.pf{padding-top:8px!important}
  .hn-cta{margin-top:16px;gap:8px;flex-wrap:nowrap}
  .hn-cta a{font-size:15px;min-width:0;height:48px;padding:0 10px!important;text-align:center}
  .hn-b1,.hn-b2{flex:1 1 0}
- .hn-cd{display:flex;justify-content:center;margin-top:14px;padding:10px 12px;font-size:12.5px}.hn-cd b{font-size:26px}.hn-cd span{font-size:10.5px;margin-right:8px}
+ .hn-cd{margin-top:14px;font-size:13px}.hn-cd b{font-size:26px}.hn-cd span{font-size:14px;margin-right:6px}
+ .hn-dot{animation-duration:2.2s}
  /* l'accueil occupe tout l'écran du téléphone (sous l'en-tête de 56 px) ; la section suivante n'apparaît qu'au défilement (7/11, 8 h 35) */
  html.noel .hnoel{min-height:calc(100vh - 56px);min-height:calc(100lvh - 56px)}
  .hn-in{min-height:inherit;display:flex;flex-direction:column;align-items:stretch}
  .hn-txt{flex:none}
  .hn-vis{flex:1 1 auto;height:auto;min-height:190px;margin-top:14px}
- .hn-front{right:12%;top:0;width:auto;height:min(calc(100% - 16px),max(180px,calc(100svh - 400px)),380px)}
- .hn-back{left:1%;right:auto;top:22px;width:auto;height:min(calc(100% - 40px),max(150px,calc(100svh - 440px)),320px)}
+ .hn-front{left:50%;right:auto;transform:translateX(-50%);top:0;width:auto;height:min(calc(100% - 16px),max(180px,calc(100svh - 380px)),400px)}
+ .hn-back{display:none!important;left:1%;right:auto;top:22px;width:auto;height:min(calc(100% - 40px),max(150px,calc(100svh - 440px)),320px)}
 }
 .hn-y{display:none}
 @media (max-width:700px){.hn-x{display:none}.hn-y{display:inline}}
