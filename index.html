@@ -1902,10 +1902,14 @@ html.noel .hnoel{padding:0!important;display:block;position:relative;overflow:hi
 .hn-b2:hover{background:rgba(245,239,230,.08)}
 .hn-cta a:active{transform:scale(.97)}
 .hn-cta a:focus-visible{outline:2px solid #d9b98a;outline-offset:3px}
-.hn-cd{margin:26px 0 0;font-size:14px;color:#a89c8d;display:flex;align-items:baseline;gap:4px;flex-wrap:wrap}
-.hn-cd span{margin-right:6px}
-.hn-cd b{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:28px;color:#f5efe6;font-variant-numeric:lining-nums tabular-nums;line-height:1}
-.hn-cd i{font-style:normal;margin-right:8px}
+.hn-cd{margin:24px 0 0;display:inline-flex;align-items:baseline;gap:4px;flex-wrap:wrap;padding:11px 18px;border:1px solid rgba(217,185,138,.45);border-radius:14px;background:rgba(217,185,138,.08);color:#cbbfae;font-size:13px}
+.hn-cd span{margin-right:10px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#d9b98a;font-weight:500}
+.hn-cd b{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:28px;color:#fff6e6;font-variant-numeric:lining-nums tabular-nums;line-height:1}
+.hn-cd i{font-style:normal;margin-right:10px;color:#cbbfae}
+.hn-cd i:last-child{margin-right:0}
+/* fondu progressif vers la section claire suivante + fond sombre jusque sous la barre du navigateur (7/11, 8 h 45) */
+html.noel .hnoel::after{content:"";display:block;height:180px;background:linear-gradient(to bottom,rgba(251,250,248,0) 0%,rgba(251,250,248,.04) 35%,rgba(251,250,248,.55) 70%,#fbfaf8 100%);pointer-events:none}
+html.noel #fetes.pf{padding-top:8px!important}
 .hn-vis{position:relative;height:470px}
 .hn-vis img{position:absolute;object-fit:cover;display:block}
 .hn-back{left:0;top:80px;width:62%;height:auto;aspect-ratio:4/5;border-radius:22px;transform:rotate(-8deg);opacity:.85;box-shadow:0 30px 60px -20px rgba(0,0,0,.7)}
@@ -1924,7 +1928,7 @@ html.noel .hnoel{padding:0!important;display:block;position:relative;overflow:hi
  .hn-cta{margin-top:16px;gap:8px;flex-wrap:nowrap}
  .hn-cta a{font-size:15px;min-width:0;height:48px;padding:0 10px!important;text-align:center}
  .hn-b1,.hn-b2{flex:1 1 0}
- .hn-cd{margin-top:12px;font-size:12.5px}.hn-cd b{font-size:22px}
+ .hn-cd{display:flex;justify-content:center;margin-top:14px;padding:10px 12px;font-size:12.5px}.hn-cd b{font-size:26px}.hn-cd span{font-size:10.5px;margin-right:8px}
  /* l'accueil occupe tout l'écran du téléphone (sous l'en-tête de 56 px) ; la section suivante n'apparaît qu'au défilement (7/11, 8 h 35) */
  html.noel .hnoel{min-height:calc(100vh - 56px);min-height:calc(100lvh - 56px)}
  .hn-in{min-height:inherit;display:flex;flex-direction:column;align-items:stretch}
