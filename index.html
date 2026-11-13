@@ -1432,7 +1432,7 @@ if(document.readyState==='complete')setTimeout(openFromHash,200);else window.add
 /* --- bouton Partager dans la fiche --- */
 var psub=document.getElementById('psub'),shb=null;
 if(psub){shb=document.createElement('button');shb.type='button';shb.className='pshare';shb.innerHTML='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M16 6l-4-4-4 4M12 2v13"/></svg><span>Partager</span>';psub.parentNode.insertBefore(shb,psub.nextSibling);
- shb.onclick=function(){var c=curC;if(!c)return;var u=location.origin+location.pathname+'#p/'+c.k,sp=shb.querySelector('span');
+ shb.onclick=function(){var c=curC;if(!c)return;var u=location.origin+'/p/'+c.k+'/',sp=shb.querySelector('span');
   if(navigator.share){navigator.share({title:c.t+' – Malohe',url:u}).catch(function(){});return}
   function ok(){sp.textContent='Lien copié ✓';setTimeout(function(){sp.textContent='Partager'},2000)}
   if(navigator.clipboard)navigator.clipboard.writeText(u).then(ok,function(){prompt('Copiez ce lien :',u)});else prompt('Copiez ce lien :',u)}}
@@ -2103,5 +2103,5 @@ for(var i=0;i<h.attributes.length;i++){var a=h.attributes[i];d.setAttribute(a.na
 while(h.firstChild)d.appendChild(h.firstChild);h.parentNode.replaceChild(d,h)}
 var n=document.getElementById('hnoel-t'),e=document.querySelector('.hero h1');
 if(R.classList.contains('noel'))sw(e);else sw(n);})();
-</script></body>
+</script><script>/* pages produits */(function(){function L(){var h=[].filter.call(document.querySelectorAll('footer .fpro h4'),function(x){return x.textContent==='Boutique'})[0];if(!h||h.parentNode.querySelector('a[href="catalogue/"]'))return;var li=document.createElement('li'),a=document.createElement('a');a.href='catalogue/';a.textContent='Tous les produits';li.appendChild(a);h.nextElementSibling.appendChild(li)}if(document.readyState==='complete')L();else window.addEventListener('load',L);if((window.__h0||location.hash)!=='#selection')return;try{if(location.hash)history.replaceState(null,'',location.pathname+location.search)}catch(e){}function o(){var b=document.getElementById('openCart');if(b)b.click()}if(document.readyState==='complete')setTimeout(o,200);else window.addEventListener('load',function(){setTimeout(o,200)})})();</script></body>
 </html>
