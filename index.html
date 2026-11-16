@@ -438,6 +438,22 @@ footer .flegal a:hover,footer .flegal .flbtn:hover{color:var(--ink)}
  footer .fpro-on > div:not(.fpro){font-size:12px}
  footer .fpro-on nav.flinks.flegal{flex-direction:column;align-items:center;gap:8px}
 }
+</style><style>/* vitrine accueil */
+#catalogue.vit #subnav,#catalogue.vit .mrow,#catalogue.vit #toolsp,#catalogue.vit #ubanner,#catalogue.vit #banner,#catalogue.vit #grid,#catalogue.vit #more{display:none!important}
+.vitx{display:none}
+#catalogue.vit .vitx{display:block;margin-top:26px}
+.vitx h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:26px;margin:0 0 4px}
+.vitx .vsub{color:var(--muted);font-size:14.5px;margin:0 0 14px}
+.vrow{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 2px 12px;margin:0 -2px;scrollbar-width:none}
+.vrow::-webkit-scrollbar{display:none}
+.vcc{flex:0 0 146px;scroll-snap-align:start;display:flex;flex-direction:column;text-decoration:none;color:var(--ink);background:#fff;border-radius:18px;box-shadow:inset 0 0 0 1px var(--line);overflow:hidden}
+.vcc .vim{position:relative;aspect-ratio:1;background:var(--tint,#F2EEE7)}
+.vcc .vim img{position:absolute;left:10%;top:8%;width:80%;height:84%;object-fit:contain;mix-blend-mode:multiply}
+.vcc b{font-weight:500;font-size:14.5px;line-height:1.3;padding:10px 12px 2px}
+.vcc small{color:var(--accent);font-size:13px;padding:0 12px 12px;font-variant-numeric:lining-nums}
+.vall{display:flex;justify-content:center;margin-top:16px}
+.vall button{appearance:none;font:inherit;font-weight:500;font-size:15.5px;min-height:50px;padding:0 28px;border-radius:99px;border:0;background:var(--ink);color:#fff;cursor:pointer}
+@media(min-width:900px){.vcc{flex-basis:200px}}
 </style></head>
 <body>
 <a class="skip" href="#catalogue">Aller au catalogue</a>
@@ -2103,5 +2119,31 @@ for(var i=0;i<h.attributes.length;i++){var a=h.attributes[i];d.setAttribute(a.na
 while(h.firstChild)d.appendChild(h.firstChild);h.parentNode.replaceChild(d,h)}
 var n=document.getElementById('hnoel-t'),e=document.querySelector('.hero h1');
 if(R.classList.contains('noel'))sw(e);else sw(n);})();
-</script><script>/* pages produits */(function(){function L(){var h=[].filter.call(document.querySelectorAll('footer .fpro h4'),function(x){return x.textContent==='Boutique'})[0];if(!h||h.parentNode.querySelector('a[href="catalogue/"]'))return;var li=document.createElement('li'),a=document.createElement('a');a.href='catalogue/';a.textContent='Tous les produits';li.appendChild(a);h.nextElementSibling.appendChild(li)}if(document.readyState==='complete')L();else window.addEventListener('load',L);if((window.__h0||location.hash)!=='#selection')return;try{if(location.hash)history.replaceState(null,'',location.pathname+location.search)}catch(e){}function o(){var b=document.getElementById('openCart');if(b)b.click()}if(document.readyState==='complete')setTimeout(o,200);else window.addEventListener('load',function(){setTimeout(o,200)})})();</script></body>
+</script><script>/* pages produits */(function(){function L(){var h=[].filter.call(document.querySelectorAll('footer .fpro h4'),function(x){return x.textContent==='Boutique'})[0];if(!h||h.parentNode.querySelector('a[href="catalogue/"]'))return;var li=document.createElement('li'),a=document.createElement('a');a.href='catalogue/';a.textContent='Tous les produits';li.appendChild(a);h.nextElementSibling.appendChild(li)}if(document.readyState==='complete')L();else window.addEventListener('load',L);if((window.__h0||location.hash)!=='#selection')return;try{if(location.hash)history.replaceState(null,'',location.pathname+location.search)}catch(e){}function o(){var b=document.getElementById('openCart');if(b)b.click()}if(document.readyState==='complete')setTimeout(o,200);else window.addEventListener('load',function(){setTimeout(o,200)})})();</script><script>/* vitrine accueil */
+(function(){var cat=document.getElementById('catalogue');if(!cat)return;var D;try{D=JSON.parse(document.getElementById('data').textContent)}catch(e){return}
+var K=["006-addiction", "016-sailor", "tropical-breeze", "mylip-secret-encre-a-levres-peel-off", "juicy-oil-huile-levres-hydratante", "creme-mains-a-la-bave-descargot", "rosea", "flower-garden"];var by={};D.cards.forEach(function(c){by[c.k]=c});
+var TINT={floral:'t-floral',ambre:'t-ambre',frais:'t-frais',aquatique:'t-frais',marin:'t-frais',aromatique:'t-frais',boise:'t-boise',fougere:'t-boise',gourmand:'t-gourmand',fruite:'t-fruite',epice:'t-epice'};
+function nm(x){return (x||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim()}
+function tint(c){var f=c.n&&c.n.Famille?nm(c.n.Famille).split(' ')[0]:'';return TINT[f]||'t-neutre'}
+function out(v){return / · épuisé/.test(v.l)}
+function eur(x){return x.toFixed(2).replace('.',',')+'\u00a0€'}
+if(!(window.matchMedia&&matchMedia('(max-width: 700px)').matches))return;var tools=cat.querySelector('.tools');if(!tools)return;
+var box=document.createElement('div');box.className='vitx';
+box.innerHTML='<h3>Coups de cœur</h3><p class="vsub">Une petite sélection pour commencer. Touchez un univers ci-dessus pour tout voir.</p><div class="vrow" role="list"></div><div class="vall"><button type="button">Voir tout le catalogue</button></div>';
+var row=box.querySelector('.vrow');
+K.forEach(function(k){var c=by[k];if(!c)return;var ps=c.v.filter(function(v){return !out(v)}).map(function(v){return v.p});if(!ps.length)return;
+ var a=document.createElement('a');a.className='vcc '+tint(c);a.href='#p/'+c.k;a.setAttribute('role','listitem');
+ var im=document.createElement('span');im.className='vim';var src=D.imgs[c.im]||(c.v[0].im&&D.imgs[c.v[0].im]);if(src){var i=document.createElement('img');i.src=src;i.alt='';i.loading='lazy';im.appendChild(i)}
+ a.appendChild(im);var b=document.createElement('b');b.textContent=c.t;a.appendChild(b);var s=document.createElement('small');s.textContent=(c.v.length>1?'dès ':'')+eur(Math.min.apply(null,ps));a.appendChild(s);row.appendChild(a)});
+tools.parentNode.insertBefore(box,tools.nextSibling);
+cat.classList.add('vit');var t0=[].filter.call(cat.querySelectorAll('#tabs .tab'),function(t){return t.getAttribute('aria-pressed')==='true'})[0];[].forEach.call(cat.querySelectorAll('#tabs .tab'),function(t){t.setAttribute('aria-pressed','false')});
+var open=false;function unfold(){if(open)return;open=true;cat.classList.remove('vit')}
+box.querySelector('.vall button').addEventListener('click',function(){unfold();if(t0)t0.click();var g=document.getElementById('grid');if(g)g.scrollIntoView({behavior:'smooth',block:'start'})});
+tools.addEventListener('click',function(e){if(e.target.closest('.tab,#fbtn,#favbtn,.sub'))unfold()},true);
+var q=document.getElementById('q');if(q){q.addEventListener('focus',unfold);q.addEventListener('input',unfold)}
+if(location.hash&&location.hash!=='#p/'&&/^#(catalogue|grid)/.test(window.__h0||location.hash))unfold();
+function watch(){var g=document.getElementById('grid');if(!g||!window.MutationObserver)return;new MutationObserver(function(){if(!open)unfold()}).observe(g,{childList:true})}
+if(document.readyState==='complete')setTimeout(watch,1200);else window.addEventListener('load',function(){setTimeout(watch,1200)});
+})();
+</script></body>
 </html>
