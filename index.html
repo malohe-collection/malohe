@@ -143,7 +143,7 @@ textarea{font:inherit;font-size:13px;width:100%;min-height:150px;border-radius:1
 .toast{position:fixed;left:50%;bottom:calc(26px + env(safe-area-inset-bottom,0px));transform:translate(-50%,12px);background:var(--ink);color:var(--bg);padding:11px 22px;border-radius:980px;font-size:14px;z-index:50;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 /* reveal */
-.rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.23,1,.32,1),transform .6s cubic-bezier(.23,1,.32,1)}
 .rv.in{opacity:1;transform:none}
 @media (max-width:700px){nav{display:none}.bar{justify-content:space-between}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}.rv{opacity:1;transform:none}}
@@ -240,8 +240,8 @@ header{position:sticky}
 .orn{display:flex;align-items:center;justify-content:center;gap:14px;margin:26px auto 0;height:10px}
 .orn i{display:block;height:1px;width:clamp(60px,12vw,130px);transform:scaleX(0);transform-origin:right;background:linear-gradient(90deg,transparent,#b98a55);animation:ln 1.4s cubic-bezier(.2,.7,.2,1) 1s forwards}
 .orn i:last-child{background:linear-gradient(270deg,transparent,#b98a55);transform-origin:left}
-.orn b{width:7px;height:7px;background:#b98a55;transform:rotate(45deg) scale(0);animation:dm .8s cubic-bezier(.2,.9,.3,1.4) 1.1s forwards}
-@keyframes ln{to{transform:none}}@keyframes dm{to{transform:rotate(45deg) scale(1)}}
+.orn b{width:7px;height:7px;background:#b98a55;opacity:0;transform:rotate(45deg) scale(.5);animation:dm .5s cubic-bezier(.23,1,.32,1) 1.1s forwards}
+@keyframes ln{to{transform:none}}@keyframes dm{to{opacity:1;transform:rotate(45deg) scale(1)}}
 .s2,.s3,.s5,.s7{display:none}.sp{filter:drop-shadow(0 0 4px rgba(232,207,163,.7))}
 .hero .lede{margin-top:20px}
 @media (prefers-reduced-motion:reduce){.hero .ttl .w{opacity:1;filter:none;transform:none;animation:none}.orn i{width:clamp(60px,12vw,130px);transform:none;animation:none}.orn b{transform:rotate(45deg);animation:none}}
@@ -461,7 +461,7 @@ footer .flegal a:hover,footer .flegal .flbtn:hover{color:var(--ink)}
 <div id="pfrib" class="pfrib"><div class="pfw"><span>✦ <b>Noël</b> : le 3<sup>e</sup> produit offert sur une sélection de duos, jusqu’au 15 décembre</span><a href="#fetes" data-go>Voir les offres</a></div></div><header><div class="bar">
 <a class="brand" href="#top" data-go><svg class="mono" viewBox="-8 0 190 215" style="height:34px" aria-hidden="true" fill="none"><defs><linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--g1)"/><stop offset="0.5" style="stop-color:var(--g2)"/><stop offset="1" style="stop-color:var(--g1)"/></linearGradient></defs><path d="M110 18A81 81 0 1 0 62 171" stroke="url(#lg2)" stroke-width="2.6" stroke-linecap="round"/><path d="M11 20H47L109 172H77Z" fill="url(#lg2)"/><path class="lf" d="M85.3 172L88.7 172L140.4 20L137 20Z"/><rect class="lf" x="137" y="20" width="8" height="152"/><path class="lf" d="M120 168.8H175V172H120Z"/></svg><span>MALOHE</span></a>
 <nav aria-label="Navigation principale"><a href="#fetes" data-go class="pfnav">Noël</a><a href="#catalogue" data-go>Catalogue</a><a href="#luxury" data-go>Luxury</a><a href="#commander" data-go>Commander</a><a href="#faq" data-go>FAQ</a><a href="#contact" data-go>Contact</a></nav>
-<div class="hact"><button class="hsearch" id="hsearch" type="button" aria-label="Rechercher un produit"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.2-4.2"/></svg></button><button class="cartbtn" id="openCart" type="button" aria-label="Ouvrir ma sélection">Ma sélection <span id="count">0</span></button></div>
+<div class="hact"><button class="hsearch" id="hsearch" type="button" aria-label="Rechercher un produit"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.2-4.2"/></svg></button><button class="cartbtn" id="openCart" type="button" aria-label="Ouvrir ma sélection"><svg class="cbag" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.1 11.2a1.5 1.5 0 0 1-1.5 1.3H7.6a1.5 1.5 0 0 1-1.5-1.3z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg><b class="cbl">Ma sélection</b> <span id="count">0</span></button></div>
 </div></header>
 <main id="top">
 <section class="hnoel" aria-labelledby="hnoel-t">
@@ -2146,5 +2146,50 @@ if(location.hash&&location.hash!=='#p/'&&/^#(catalogue|grid)/.test(window.__h0||
 function watch(){var g=document.getElementById('grid');if(!g||!window.MutationObserver)return;new MutationObserver(function(){if(!open)unfold()}).observe(g,{childList:true})}
 if(document.readyState==='complete')setTimeout(watch,1200);else window.addEventListener('load',function(){setTimeout(watch,1200)});
 })();
-</script></body>
+</script><style id="v70-css">
+/* v70 (17/11) : finitions visuelles */
+/* 1. tactile : pas d'état de survol qui reste collé après un toucher */
+@media (hover:none){
+ .card:hover{transform:none;box-shadow:0 1px 0 rgba(0,0,0,.08),0 10px 30px -18px rgba(60,40,20,.25)}
+ .tab:hover .av,.luxrow img:hover,#items img.go:hover,.pfo:hover,.hb:hover,.addsel:hover:not(:disabled){transform:none}
+ .vwrap .var.dot:not([aria-pressed="true"]):hover{transform:none;box-shadow:inset 0 0 0 1px rgba(29,29,31,.28)}
+ .cadd:hover{background:transparent!important;color:var(--ink)!important;border-color:rgba(31,23,18,.38)!important}
+}
+/* 2. ordinateur : un seul bouton flottant */
+#tobot{display:none!important}
+@media (min-width:821px){#totop{bottom:22px!important}}
+/* 3. flèches des offres sur les bords du carrousel (tablette, petit ordinateur) */
+@media (min-width:701px) and (max-width:1179px){
+ .pfrail{padding-bottom:0}.pfrail::after{bottom:8px}
+ .pfo{top:calc(50% - 25px);bottom:auto}
+ .pfo-r{right:6px}.pfo-l{left:6px;right:auto}
+}
+/* 4. points dorés hors de la zone du titre */
+.hn-dot.d7,.hn-dot.d9{display:none}
+@media (max-width:700px){.hn-dot.d1,.hn-dot.d5,.hn-dot.d6,.hn-dot.d8,.hn-dot.d10,.hn-dot.d14,.hn-dot.d16{display:none}}
+/* 5. retour visuel à l'appui */
+.pfchip,.pfdot,.tab,.sub,.fbtn,.famchip,.cszb,.cadd,.ctl,.qzbtn,.hn-b1,.hn-b2{transition-property:transform,background,background-color,color,border-color,box-shadow,opacity;transition-duration:.16s;transition-timing-function:ease-out}
+.pfchip:active,.pfdot:active,.sub:active,.fbtn:active,.famchip:active,.cszb:active:not(:disabled),.cadd:active,.ctl:active,.qzbtn:active,.hn-b1:active,.hn-b2:active{transform:scale(.97)}
+.tab:active .av{transform:scale(.95)}
+.pfo:active{transform:scale(.94)}
+@media (prefers-reduced-motion:reduce){.pfchip,.pfdot,.tab,.sub,.fbtn,.famchip,.cszb,.cadd,.ctl,.qzbtn{transition-duration:0s}}
+</style>
+<style id="v70b-css">
+/* v70 (17/11) : priorité 2 */
+/* 1. Budget et Trier dans le volet Filtres, sur tous les écrans */
+#prow,.sortw{display:none!important}
+#s-p{display:block!important}
+/* 2. bouton du panier */
+.cartbtn .cbl{font:inherit;font-weight:inherit}
+.cartbtn .cbag{display:none;flex:none}
+@media (max-width:700px){
+ .cartbtn{height:40px;padding:0 9px 0 10px!important;gap:5px!important;font-size:12px!important}
+ .cartbtn .cbl{display:none}
+ .cartbtn .cbag{display:block}
+ .cartbtn::before{content:none!important}
+}
+/* 3. plus de barre de progression sous l'en-tête */
+header .hprog{display:none!important}
+</style>
+</body>
 </html>
