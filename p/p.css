@@ -120,3 +120,32 @@ h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:clam
  .price{font-size:30px}.qty{min-width:120px}.add{padding:0 16px;font-size:15px}
  .cat ul{grid-template-columns:1fr}
 }
+/* v71 (17/11/2026) : en-tête et boutons identiques à l'accueil */
+.hd{background:#fbfaf8;backdrop-filter:none;-webkit-backdrop-filter:none}
+.hd .wrap{height:64px}
+.brand{gap:12px;font-size:22px;font-weight:500;letter-spacing:.32em}
+.brand .mono{height:40px;width:auto;flex:none}
+.hd nav{gap:10px}
+.hd nav a.cl{font-size:14.5px;color:var(--muted)}
+.hd nav a.hs{width:40px;height:40px;padding:0;border-radius:50%;display:grid;place-items:center;background:#fff;box-shadow:inset 0 0 0 1px var(--line);color:var(--ink)}
+.hd .sel{background:#7a5638;height:41px;padding:0 8px 0 18px;font-size:14px;font-weight:400}
+.hd .sel b{font-weight:400}
+.hd .sel .cbag{display:none;flex:none}
+.hd .sel i{min-width:20px;height:20px;font-size:12px;padding:0 6px;color:#7a5638}
+.add{background:#7a5638}
+.pk{font-size:12px}
+.hd nav a,.add,.qty button,.pcc,.card,.vbi{transition:transform .16s ease-out,background-color .2s ease,box-shadow .2s ease}
+.hd nav a:active,.add:active:not(:disabled),.pcc:active,.card:active{transform:scale(.97)}
+.qty button:active{transform:scale(.9)}
+.vb:active .vbi{transform:scale(.98)}
+@media (hover:hover) and (pointer:fine){.hd nav a.hs:hover{box-shadow:inset 0 0 0 1px var(--accent);color:var(--accent);background:#fff}}
+@media (hover:none){.hd nav a:hover{background:transparent}.hd nav a.hs:hover{background:#fff}.hd .sel:hover,.add:hover:not(:disabled){background:#7a5638}.qty button:hover{background:none}.pcc:hover b,.card:hover b{text-decoration:none}}
+@media (max-width:700px){
+ .hd .wrap{height:56px;gap:6px;padding:0 12px}
+ .brand{gap:7px;font-size:16.5px;letter-spacing:.2em}.brand .mono{height:30px}
+ .hd nav{gap:6px}
+ .hd nav a.hs{width:36px;height:36px}
+ .hd .sel{height:40px;padding:0 9px 0 10px;gap:5px;font-size:12px}
+ .hd .sel b{display:none}.hd .sel .cbag{display:block}
+}
+@media (prefers-reduced-motion:reduce){.hd nav a,.add,.qty button,.pcc,.card,.vbi{transition:none}}
