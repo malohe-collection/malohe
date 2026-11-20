@@ -478,7 +478,7 @@ html.bwhero .hn-cta{justify-content:center}
 html.bwhero .hn-cd{justify-content:center;letter-spacing:.06em}
 @media (max-width:700px){html.bwhero .hnoel::before{inset:12px}html.noel.bwhero .hnoel h1{font-size:clamp(60px,19vw,88px)}html.bwhero .hn-in{justify-content:center;padding:48px 28px 40px}html.bwhero .hn-eb{letter-spacing:.2em;font-size:10px}html.bwhero .bwrule{margin-top:22px}}
 @media (prefers-reduced-motion:reduce){html.bwhero .hnoel::after{animation:none}}
-@media (max-width:700px){html.noel.bwhero .hnoel{min-height:calc(100svh - var(--bwtop,0px))!important;display:flex!important}html.bwhero .hn-in{min-height:0!important;flex:1;padding:40px 28px!important;justify-content:center!important}}
+@media (max-width:700px){html.noel.bwhero .hnoel{min-height:calc(100lvh - var(--bwtop,0px))!important;display:flex!important}html.bwhero .hn-in{min-height:0!important;flex:1;padding:40px 28px calc(40px + 100lvh - 100svh)!important;justify-content:center!important}}
 /* Black Week (19/11/2026) */
 .bwrib,#blackweek{display:none}
 html.bwon .bwrib{display:block}html.bwon #pfrib{display:none!important}html.bwon #blackweek{display:block}
@@ -532,6 +532,11 @@ html.bwon .bwrib{display:block}html.bwon #pfrib{display:none!important}html.bwon
 }
 @media (prefers-reduced-motion:reduce){.bwk,.bwc{opacity:1;transform:none;transition:none}.bw.in h2 em{animation:none;background-position:50% 0}.bwl{transform:none!important}}
 /* Black Week « offert » (20/11/2026) */
+/* pleine largeur, sans bande blanche (demande de Hasch, 20/11) */
+#blackweek{padding:0!important;margin:0!important;max-width:none!important;background:#0b0b0c}
+#blackweek .bwstage{max-width:none;border-radius:0;margin:0;width:auto}
+#blackweek .bwstage .bwhead,#blackweek .bwstage .bwbody{max-width:1180px;margin-left:auto;margin-right:auto}
+@media (max-width:700px){#blackweek .bwstage .bwhead{padding-top:44px}}
 .bwc .sub{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;line-height:1.4;margin-top:4px}
 .bwc.on{box-shadow:inset 0 0 0 1px #e8cfa3}
 .bwc[data-pick]{cursor:pointer}
@@ -553,8 +558,8 @@ html.bwon .bwrib{display:block}html.bwon #pfrib{display:none!important}html.bwon
 .bwt{position:relative;flex:1 1 0;min-width:0;aspect-ratio:3/4;border-radius:8px;background:#fff;overflow:hidden}
 .bwc .bwt img{padding:4px}
 .bwt.g{box-shadow:0 0 0 1.5px #b98a55}
-.bwt b{position:absolute;left:0;right:0;bottom:0;background:#0b0b0c;color:#f3dfb8;font-family:'Jost',system-ui,sans-serif;font-size:9px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;text-align:center;padding:3px 0;white-space:nowrap;overflow:hidden}
-.bwtr.n4 .bwt b{font-size:7.5px;letter-spacing:0}
+.bwt b{position:absolute;left:0;right:0;bottom:0;background:#0b0b0c;color:#f3dfb8;font-family:'Jost',system-ui,sans-serif;font-size:8px;font-weight:600;letter-spacing:0;text-transform:uppercase;text-align:center;padding:3px 0;white-space:nowrap;overflow:hidden}
+.bwtr.n4 .bwt b{font-size:6.5px;letter-spacing:0}
 .bwt em{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;font-style:normal;font-size:8px;line-height:1.15;color:#5c4a36;padding:3px 3px 16px;overflow:hidden}
 .bwtr i{font-style:normal;font-family:'Jost',system-ui,sans-serif;color:#9a8670;font-size:13px;flex:none}
 .bwsel{font:inherit;color:inherit;text-align:left;border:0;padding:0;cursor:pointer;position:relative;-webkit-tap-highlight-color:transparent}
