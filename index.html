@@ -533,6 +533,7 @@ html.bwon .bwrib{display:block}html.bwon #pfrib{display:none!important}html.bwon
 /* Black Week « offert » (20/11/2026) */
 .bwc .sub{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;line-height:1.4;margin-top:4px}
 .bwc.on{box-shadow:inset 0 0 0 1px #e8cfa3}
+.bwc[data-pick]{cursor:pointer}
 .bwpick{margin:4px 0 8px;border-radius:16px;background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(232,207,163,.22);padding:16px 16px 6px}
 .bwpick h5{margin:0 0 2px;font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:22px;color:#f5efe6}
 .bwpick .bwpt{font-size:13px;color:#b9ab98;margin:0 0 10px}
@@ -746,7 +747,7 @@ function init(){if(!boot())return;
  function trio(o){var b=[],u={};function take(list,n){for(var j=0;j<list.length&&n>0;j++){var r=list[j];if(!u[r]&&im(r)){u[r]=1;b.push(r);n--}}while(n-->0)b.push(list[0])}
   o.grp.forEach(function(g){take(g[0],g[1])});var gr='';for(var j=0;j<o.g.length;j++){if(o.g[j][0]&&!u[o.g[j][0]]&&im(o.g[j][0])){gr=o.g[j][0];break}}if(!gr)gr=o.g[0][0];
   var h=b.map(function(r){return tile(r)}).join('<i aria-hidden="true">+</i>');for(var k=0;k<o.gn;k++)h+='<i aria-hidden="true">+</i>'+tile(gr,gr?' ':o.g[0][1]);return h}
- G.innerHTML=P.o.map(function(o,i){return '<div class="bwc" style="--i:'+i+'" data-o="'+i+'"><button type="button" class="ph trio" data-pick="'+i+'" aria-label="Voir les produits : '+esc(o.nom)+'"><span class="bwtr'+((o.grp.reduce(function(t,g){return t+g[1]},0)+o.gn)>3?' n4':'')+'">'+trio(o)+'</span><span class="bwpct">'+esc(o.lbl)+'</span></button><div class="bd"><h4>'+esc(o.nom)+'</h4><div class="sub">'+esc(o.txt)+'</div><button type="button" class="bwadd" data-pick="'+i+'" aria-expanded="false">Voir les produits</button></div></div>'}).join('');
+ G.innerHTML=P.o.map(function(o,i){return '<div class="bwc" style="--i:'+i+'" data-o="'+i+'" data-pick="'+i+'"><button type="button" class="ph trio" data-pick="'+i+'" aria-label="Voir les produits : '+esc(o.nom)+'"><span class="bwtr'+((o.grp.reduce(function(t,g){return t+g[1]},0)+o.gn)>3?' n4':'')+'">'+trio(o)+'</span><span class="bwpct">'+esc(o.lbl)+'</span></button><div class="bd"><h4>'+esc(o.nom)+'</h4><div class="sub">'+esc(o.txt)+'</div><button type="button" class="bwadd" data-pick="'+i+'" aria-expanded="false">Voir les produits</button></div></div>'}).join('');
  var cur=-1,SEL=null;function mark(i){[].forEach.call(G.querySelectorAll('.bwc'),function(c){var on=+c.dataset.o===i;c.classList.toggle('on',on);c.querySelector('.bwadd').setAttribute('aria-expanded',String(on))})}
  function nm(x){var l=x.v.l.replace(' · recharge étui','');return x.c.t+(x.c.v.length>1?' · '+l:'')}
  function item(r,j){var x=IDX[r];if(!x)return'';var n=SEL.g[j][r]||0;return '<button type="button" class="bwpi bwsel'+(n?' on':'')+'" data-sel="'+j+'" data-r="'+esc(r)+'" aria-pressed="'+(n?'true':'false')+'"><span class="ph"><img loading="lazy" alt="" src="'+im(r)+'"></span><span class="bd"><span class="n">'+esc(nm(x))+'</span><span class="p">'+eur(x.v.p)+'</span></span>'+(n?'<span class="ck" aria-hidden="true">'+(n>1?'×'+n:'✓')+'</span>':'')+'</button>'}
