@@ -555,7 +555,17 @@ html.bwon .bwrib{display:block}html.bwon #pfrib{display:none!important}html.bwon
 .bwtr.n4 .bwt b{font-size:7.5px;letter-spacing:0}
 .bwt em{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;font-style:normal;font-size:8px;line-height:1.15;color:#5c4a36;padding:3px 3px 16px;overflow:hidden}
 .bwtr i{font-style:normal;font-family:'Jost',system-ui,sans-serif;color:#9a8670;font-size:13px;flex:none}
-.bwgift .ph{cursor:default}
+.bwsel{font:inherit;color:inherit;text-align:left;border:0;padding:0;cursor:pointer;position:relative;-webkit-tap-highlight-color:transparent}
+.bwsel .ph,.bwsel .bd{display:flex}.bwsel .ph{display:block}.bwsel .bd{flex-direction:column}
+.bwsel.on{box-shadow:0 0 0 2px #e8cfa3;background:rgba(232,207,163,.1)}
+.bwsel:focus-visible{outline:2px solid #e8cfa3;outline-offset:2px}
+.bwsel .ck{position:absolute;top:7px;right:7px;min-width:26px;height:26px;border-radius:99px;background:#e8cfa3;color:#0b0b0c;font-family:'Jost',system-ui,sans-serif;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;padding:0 6px;box-sizing:border-box}
+.bwcnt{margin-left:6px;color:#f5efe6;letter-spacing:.04em}
+.bwfoot{position:sticky;bottom:0;margin:6px -16px 0;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:#141312;border-top:1px solid rgba(232,207,163,.22);border-radius:0 0 16px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.bwft{font-size:13.5px;color:#f3dfb8}
+.bwgo{font:inherit;font-size:14px;font-weight:500;border:0;border-radius:99px;padding:12px 20px;min-height:44px;background:#f3dfb8;color:#0b0b0c;cursor:pointer}
+.bwgo:disabled{opacity:.4;cursor:default}
+@media (max-width:700px){.bwgo{width:100%}}
 .bwfree .cinfo{min-width:0}.bwfree select{width:100%;max-width:100%;text-overflow:ellipsis}
 </style><a class="skip" href="#catalogue">Aller au catalogue</a>
 <div id="bwrib" class="bwrib"><div class="pfw"><span><b>Black Week</b> <span id="bwrt"></span></span><a href="#blackweek" data-go>Voir les offres</a></div></div>
@@ -737,15 +747,26 @@ function init(){if(!boot())return;
   o.grp.forEach(function(g){take(g[0],g[1])});var gr='';for(var j=0;j<o.g.length;j++){if(o.g[j][0]&&!u[o.g[j][0]]&&im(o.g[j][0])){gr=o.g[j][0];break}}if(!gr)gr=o.g[0][0];
   var h=b.map(function(r){return tile(r)}).join('<i aria-hidden="true">+</i>');for(var k=0;k<o.gn;k++)h+='<i aria-hidden="true">+</i>'+tile(gr,gr?' ':o.g[0][1]);return h}
  G.innerHTML=P.o.map(function(o,i){return '<div class="bwc" style="--i:'+i+'" data-o="'+i+'"><button type="button" class="ph trio" data-pick="'+i+'" aria-label="Voir les produits : '+esc(o.nom)+'"><span class="bwtr'+((o.grp.reduce(function(t,g){return t+g[1]},0)+o.gn)>3?' n4':'')+'">'+trio(o)+'</span><span class="bwpct">'+esc(o.lbl)+'</span></button><div class="bd"><h4>'+esc(o.nom)+'</h4><div class="sub">'+esc(o.txt)+'</div><button type="button" class="bwadd" data-pick="'+i+'" aria-expanded="false">Voir les produits</button></div></div>'}).join('');
- function item(r){var x=IDX[r];if(!x)return'';var l=x.v.l.replace(' · recharge étui','');return '<div class="bwpi"><button type="button" class="ph" data-open="'+esc(r)+'" aria-label="Voir la fiche : '+esc(x.c.t)+'"><img loading="lazy" alt="" src="'+im(r)+'"></button><div class="bd"><div class="n">'+esc(x.c.t)+(x.c.v.length>1?' · '+esc(l):'')+'</div><div class="p">'+eur(x.v.p)+'</div><button type="button" class="bwadd" data-add="'+esc(r)+'" aria-label="Ajouter à ma sélection : '+esc(x.c.t+' '+l)+'">Ajouter</button></div></div>'}
- var cur=-1;function mark(i){[].forEach.call(G.querySelectorAll('.bwc'),function(c){var on=+c.dataset.o===i;c.classList.toggle('on',on);c.querySelector('.bwadd').setAttribute('aria-expanded',String(on))})}
+ var cur=-1,SEL=null;function mark(i){[].forEach.call(G.querySelectorAll('.bwc'),function(c){var on=+c.dataset.o===i;c.classList.toggle('on',on);c.querySelector('.bwadd').setAttribute('aria-expanded',String(on))})}
+ function nm(x){var l=x.v.l.replace(' · recharge étui','');return x.c.t+(x.c.v.length>1?' · '+l:'')}
+ function item(r,j){var x=IDX[r];if(!x)return'';var n=SEL.g[j][r]||0;return '<button type="button" class="bwpi bwsel'+(n?' on':'')+'" data-sel="'+j+'" data-r="'+esc(r)+'" aria-pressed="'+(n?'true':'false')+'"><span class="ph"><img loading="lazy" alt="" src="'+im(r)+'"></span><span class="bd"><span class="n">'+esc(nm(x))+'</span><span class="p">'+eur(x.v.p)+'</span></span>'+(n?'<span class="ck" aria-hidden="true">'+(n>1?'×'+n:'✓')+'</span>':'')+'</button>'}
+ function gtile(x,k){var y=IDX[x[0]],on=SEL.gift===k,s=im(x[0]);return '<button type="button" class="bwpi bwsel bwgift'+(on?' on':'')+'" data-gift="'+k+'" aria-pressed="'+on+'"><span class="ph">'+(s?'<img loading="lazy" alt="" src="'+s+'">':'')+'</span><span class="bd"><span class="n">'+esc(x[1])+'</span><span class="p">Offert'+(y?' · au lieu de '+eur(y.v.p):'')+'</span></span>'+(on?'<span class="ck" aria-hidden="true">✓</span>':'')+'</button>'}
+ function tot(j){var t=0,s=SEL.g[j];for(var r in s)t+=s[r];return t}
+ function draw(msg){var o=P.o[cur],h='<h5>'+esc(o.nom)+'</h5><p class="bwpt">'+esc(o.txt)+'</p>',ok=true,sum=0;
+  o.grp.forEach(function(g,j){var t=tot(j);if(t<g[1])ok=false;for(var r in SEL.g[j])sum+=IDX[r].v.p*SEL.g[j][r];
+   h+='<div class="bwg">'+(o.grp.length>1?'Étape '+(j+1)+' · ':'')+'Choisissez '+(g[1]>1?g[1]+' produits':'1 produit')+' <span class="bwcnt">'+t+'/'+g[1]+'</span></div><div class="bwpl">'+g[0].map(function(r){return item(r,j)}).join('')+'</div>'});
+  h+='<div class="bwg">'+(o.g.length>1?'Choisissez votre produit offert':'Produit offert')+'</div><div class="bwpl">'+o.g.map(gtile).join('')+'</div>';
+  h+='<div class="bwfoot"><div class="bwft" role="status">'+(msg||(ok?'Total '+eur(sum)+' · '+(o.gn>1?o.gn+' produits offerts':'1 produit offert'):'Touchez les produits pour les choisir'))+'</div><button type="button" class="bwgo" data-golot'+(ok?'':' disabled')+'>Ajouter le lot au panier</button></div>';
+  var sx=[].map.call(K.querySelectorAll('.bwpl'),function(e){return e.scrollLeft});K.innerHTML=h;[].forEach.call(K.querySelectorAll('.bwpl'),function(e,k){e.scrollLeft=sx[k]||0})}
  function pick(i){if(i===cur){K.hidden=true;cur=-1;mark(-1);return}
-  cur=i;mark(i);var o=P.o[i],h='<h5>'+esc(o.nom)+'</h5><p class="bwpt">'+esc(o.txt)+'</p>';
-  o.grp.forEach(function(g,j){h+='<div class="bwg">'+(o.grp.length>1?'Étape '+(j+1)+' · ':'')+g[1]+' au choix</div><div class="bwpl">'+g[0].map(item).join('')+'</div>'});
-  h+='<div class="bwg">Offert'+(o.g.length>1?' · au choix dans votre sélection':'')+'</div><div class="bwpl">'+o.g.map(function(x){var y=IDX[x[0]];return '<div class="bwpi bwgift"><span class="ph">'+(im(x[0])?'<img loading="lazy" alt="" src="'+im(x[0])+'">':'')+'</span><div class="bd"><div class="n">'+esc(x[1])+'</div><div class="p">Offert'+(y?' · au lieu de '+eur(y.v.p):'')+'</div></div></div>'}).join('')+'</div>';
-  K.innerHTML=h;K.hidden=false;K.scrollIntoView({block:'nearest',behavior:'smooth'})}
- function onClick(e){var a=e.target.closest('[data-add]');if(a){var x=IDX[a.dataset.add];if(x)M.add(x.c,x.v);return}
-  var b=e.target.closest('[data-open]');if(b){var y=IDX[b.dataset.open];if(y)M.openP(y.c);return}
+  cur=i;mark(i);var o=P.o[i];SEL={g:o.grp.map(function(){return{}}),gift:Math.min(CH[o.id]||0,o.g.length-1)};K.innerHTML='';draw();K.hidden=false;K.scrollIntoView({block:'nearest',behavior:'smooth'})}
+ function sel(j,r){var g=P.o[cur].grp[j],s=SEL.g[j],n=g[1],t=tot(j);
+  if(s[r]&&g[0].length>=n)delete s[r];else if(t<n)s[r]=(s[r]||0)+1;else{var k=Object.keys(s)[0];if(--s[k]<=0)delete s[k];s[r]=(s[r]||0)+1}draw()}
+ function addLot(){var o=P.o[cur];o.grp.forEach(function(g,j){for(var r in SEL.g[j])for(var q=0;q<SEL.g[j][r];q++){var x=IDX[r];M.add(x.c,x.v)}});
+  CH[o.id]=SEL.gift;chSave();M.renderCart();SEL={g:o.grp.map(function(){return{}}),gift:SEL.gift};draw('Lot ajouté à votre sélection, avec le produit offert ✓')}
+ function onClick(e){var a=e.target.closest('[data-sel]');if(a){sel(+a.dataset.sel,a.dataset.r);return}
+  var g=e.target.closest('[data-gift]');if(g){SEL.gift=+g.dataset.gift;draw();return}
+  if(e.target.closest('[data-golot]')){addLot();return}
   var p=e.target.closest('[data-pick]');if(p)pick(+p.dataset.pick)}
  G.addEventListener('click',onClick);K.addEventListener('click',onClick);
  function tick(){var r=Math.max(0,T1-Date.now());if(!r){document.documentElement.classList.remove('bwon');return}
